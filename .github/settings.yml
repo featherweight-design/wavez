@@ -18,6 +18,10 @@ labels:
     color: '#d73a4a'
     description: Something isn't working
 
+  - name: 🪶 Component development
+    color: '#309fd9'
+    description: Development required from FWD component library
+
   - name: 🐳   Dependencies
     color: '#A2F5FF'
     description: Pull requests that update a dependency file
@@ -53,6 +57,30 @@ labels:
   - name: 🛠  Maintenance
     color: '#3A6169'
     description: Something needs refactoring/updating
+  
+  - name: 🚀 API Integration
+    color: '#E535AB'
+    description: Any Waves or third-party API integrations
+
+  - name: 🍃 Nanoleaf
+    color: '#3FAE29'
+    description: See you next fall!
+
+  - name: 💡 LIFX
+    color: '#440099'
+    description: G'day, mate!
+
+  - name: 🎨 Hue
+    color: '#FDA9E4'
+    description: Nice to meet hue
+
+  - name: 🎙 Spotify
+    color: '#1ED760'
+    description: No puns found
+
+  - name: ☁️ Soundcloud
+    color: '#FF551A'
+    description: 'Cloud #9'
 
   - name: 🧠  Question
     color: '#d876e3'
