@@ -17,9 +17,6 @@ import {
 const { loginButton } = copyContent.landingPage;
 
 describe('Get Rick and Morty Character', () => {
-  it('Should be true', () => {
-    expect(true).toEqual(true);
-  });
   // before(() => {
   //   /**
   //    * Here we intercept the two GQL calls that are made.
