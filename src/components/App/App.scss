@@ -1,0 +1,20 @@
+@import '../../styles/main';
+
+// Update root styles here as needed
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.app-initials-app {
+  height: 100%;
+}

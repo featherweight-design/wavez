@@ -1,0 +1,7 @@
+import GET_RICK_AND_MORTY_CHARACTERS_BY_ID from './GetRickAndMortyCharactersById';
+import GET_RICK_AND_MORTY_CHARACTER_COUNT from './GetRickAndMortyCharacterCount';
+
+export {
+  GET_RICK_AND_MORTY_CHARACTERS_BY_ID,
+  GET_RICK_AND_MORTY_CHARACTER_COUNT,
+};
