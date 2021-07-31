@@ -1,4 +1,26 @@
 // Add color, box, measurement, etc. variables here
 
 // Can be used to overwrite variables from @f-design
-// $brand-color: red;
+$brand-white: #DBFFFB;
+$brand-xx-light: #B3FFF7;
+$brand-x-light: #85FFF3;
+$brand-light: #57FFEE;
+$brand-medium: #29FFEA;
+$brand-color: #00FFE5;
+$brand-hover: #00E6CF;
+$brand-active: #00D1BC;
+$brand-dark: #009E8E;
+$brand-x-dark: #007065;
+$brand-xx-dark: #00423C;
+$brand-black: #000F0E;
+$brand-focus-outline: #0BD5E0;
+
+$background-white: #004D47;
+$background-xx-light: #00423E; // gray-02 => gray-03, gray-01
+$background-x-light: #003330; // gray-04 => gray-05, gray-06
+$background-light: #001F1D; // gray-08 => gray-07, gray-09
+$background: #000F0E; // gray-11 => gray-10, gray-12
+$background-dark: #000F0E; // gray-14 => gray-13, gray-15
+$background-x-dark: #000F0E; // gray-17 => gray-16, gray-18
+$background-xx-dark: #000F0E; // gray-20 => gray-19, gray-21
+$background-black: #000;

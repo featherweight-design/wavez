@@ -1,8 +1,9 @@
 export default {
   landingPage: {
-    heading: 'Feather',
+    heading: 'Wavez',
     subHeading: 'by Featherweight Design',
-    imageAlt: 'Featherweight Design Logo',
-    getCharacterButton: 'Get Rick and Morty Character',
+    imageAlt: 'Wavez Logo',
+    loginButton: 'Login',
+    logoutButton: 'Logout',
   },
 };

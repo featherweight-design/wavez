@@ -1,51 +1,36 @@
 import { FC } from 'react';
-import { useLazyQuery, useQuery } from '@apollo/client';
-import { Button, CircleLoader } from '@f-design/component-library';
+// import { useLazyQuery, useQuery } from '@apollo/client';
+import { Button } from '@f-design/component-library';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { copyContent } from 'shared/data';
-import {
-  GET_RICK_AND_MORTY_CHARACTERS_BY_ID,
-  GET_RICK_AND_MORTY_CHARACTER_COUNT,
-} from 'shared/queries';
+// import {
+//   GET_RICK_AND_MORTY_CHARACTERS_BY_ID,
+//   GET_RICK_AND_MORTY_CHARACTER_COUNT,
+// } from 'shared/queries';
 import './LandingPage.scss';
 
 const {
   heading,
   subHeading,
   imageAlt,
-  getCharacterButton,
+  loginButton,
+  logoutButton,
 } = copyContent.landingPage;
 
 const LandingPage: FC = () => {
-  const { data: countData } = useQuery(GET_RICK_AND_MORTY_CHARACTER_COUNT);
-  const [
-    getCharacterById,
-    { loading: characterLoading, data: characterData },
-  ] = useLazyQuery(GET_RICK_AND_MORTY_CHARACTERS_BY_ID);
+  const { user, loginWithRedirect, logout } = useAuth0();
+  // const { data: countData } = useQuery(GET_RICK_AND_MORTY_CHARACTER_COUNT);
+  // const [
+  //   getCharacterById,
+  //   { loading: characterLoading, data: characterData },
+  // ] = useLazyQuery(GET_RICK_AND_MORTY_CHARACTERS_BY_ID);
 
-  const count = countData?.characters?.info?.count;
+  // const getRandomCharacter = () => {
+  //   const randomId = Math.floor(Math.random() * count) + 1;
 
-  const getRandomCharacter = () => {
-    const randomId = Math.floor(Math.random() * count) + 1;
-
-    getCharacterById({ variables: { ids: [randomId] } });
-  };
-
-  const renderRickAndMortyCharacter = () => {
-    const { id, name, species, image } = characterData.charactersByIds[0];
-
-    return (
-      <>
-        <img
-          src={image}
-          alt={name}
-          className="app-initials-landing-page__character-image"
-        />
-
-        <p>{`${id} | ${name} | ${species}`}</p>
-      </>
-    );
-  };
+  //   getCharacterById({ variables: { ids: [randomId] } });
+  // };
 
   return (
     <div className="app-initials-landing-page">
@@ -54,22 +39,36 @@ const LandingPage: FC = () => {
       <p className="app-initials-landing-page__sub-heading">{subHeading}</p>
 
       <div className="app-initials-landing-page__container">
-        {!characterLoading && !characterData && (
+        {!user && (
           <img
             className="app-initials-landing-page__image"
-            src={`${process.env.PUBLIC_URL}/assets/logo512.png`}
+            src={`${process.env.PUBLIC_URL}/assets/logo/Waves Wordmark.png`}
             alt={imageAlt}
           />
         )}
 
-        {characterLoading && <CircleLoader color="#fff" />}
+        {user && (
+          <>
+            <img
+              src={user.picture}
+              alt={user.name}
+              className="app-initials-landing-page__character-image"
+            />
 
-        {characterData && renderRickAndMortyCharacter()}
+            <p>{`${user.name} | ${user.email}`}</p>
+          </>
+        )}
       </div>
 
-      <Button variant="brand" onClick={getRandomCharacter}>
-        {getCharacterButton}
-      </Button>
+      {user ? (
+        <Button variant="brand" onClick={logout}>
+          {logoutButton}
+        </Button>
+      ) : (
+        <Button variant="brand" onClick={loginWithRedirect}>
+          {loginButton}
+        </Button>
+      )}
     </div>
   );
 };
