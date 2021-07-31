@@ -5,12 +5,7 @@ import { copyContent } from 'shared/data';
 import mocks from './mocks/rickAndMortyApollo.mock';
 import LandingPage from '../LandingPage';
 
-const {
-  heading,
-  subHeading,
-  imageAlt,
-  getCharacterButton,
-} = copyContent.landingPage;
+const { heading, subHeading, imageAlt, loginButton } = copyContent.landingPage;
 
 describe('LandingPage tests', () => {
   beforeEach(() => {
@@ -42,7 +37,7 @@ describe('LandingPage tests', () => {
   });
 
   it('Should have a button to get a Rick and Morty character', () => {
-    const buttonElement = screen.getByText(getCharacterButton);
+    const buttonElement = screen.getByText(loginButton);
 
     expect(buttonElement).toBeInTheDocument();
   });

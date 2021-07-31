@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Description## Description
+## Description
 
 ### User story
 
