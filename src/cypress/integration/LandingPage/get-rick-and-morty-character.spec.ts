@@ -18,7 +18,7 @@ const { loginButton } = copyContent.landingPage;
 
 describe('Get Rick and Morty Character', () => {
   it('Should be true', () => {
-    expect(true).toBe(true);
+    expect(true).toEqual(true);
   });
   // before(() => {
   //   /**
