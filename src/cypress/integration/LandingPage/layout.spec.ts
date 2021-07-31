@@ -1,11 +1,6 @@
 import { copyContent } from 'shared/data';
 
-const {
-  heading,
-  subHeading,
-  imageAlt,
-  getCharacterButton,
-} = copyContent.landingPage;
+const { heading, subHeading, imageAlt, loginButton } = copyContent.landingPage;
 
 describe('LandingPage', () => {
   before(() => {
@@ -25,6 +20,6 @@ describe('LandingPage', () => {
   });
 
   it('Should have a button to get a Rick and Morty character', () => {
-    cy.findByText(getCharacterButton).should('exist');
+    cy.findByText(loginButton).should('exist');
   });
 });
