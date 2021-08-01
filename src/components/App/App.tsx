@@ -4,9 +4,9 @@ import Routes from '../Routes/Routes';
 import './App.scss';
 
 const App: FC = () => (
-  <div className="wavez-app">
+  <main className="wavez-app">
     <Routes />
-  </div>
+  </main>
 );
 
 export default App;
