@@ -2,7 +2,7 @@ import { copyContent } from 'shared/data';
 
 const { heading, subHeading, imageAlt, loginButton } = copyContent.landingPage;
 
-describe('LandingPage', () => {
+describe('Landing', () => {
   before(() => {
     cy.visit('/');
   });
