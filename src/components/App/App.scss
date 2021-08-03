@@ -4,17 +4,22 @@
 
 html,
 body,
-#root {
-  height: 100%;
+#root,
+.wavez-app {
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   box-sizing: border-box;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
-body {
-  margin: 0;
+body,
+#root,
+.wavez-app {
+  flex: 1;
 }
 
-.wavez-app {
-  height: 100%;
+
+body {
+  margin: 0;
 }
