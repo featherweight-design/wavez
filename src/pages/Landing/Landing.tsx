@@ -17,23 +17,18 @@ const Landing: FC = () => {
   const windowHeight = useWindowHeight();
   const { user, loginWithRedirect, logout } = useAuth0();
 
+  const { scrollHeight } = document.body;
+  const squiggleTopOffset = windowHeight - 100;
+  const squiggleHeight = scrollHeight - squiggleTopOffset;
+  const squiggleWidth = squiggleHeight * 0.38;
+
   useEffect(() => {
-    const newOffset = Math.round((scrollY * 100) / document.body.scrollHeight);
-    console.log(Math.round(offset));
+    const newOffset = Math.round(
+      (scrollY * 103) / ((scrollHeight + squiggleHeight) / 2)
+    );
 
-    if (newOffset < 20) {
+    if (newOffset !== offset) {
       updateOffset(newOffset);
-    } else if (newOffset > 20 && newOffset < 50) {
-      updateOffset(newOffset + 2);
-    } else if (offset > 50 && newOffset < 75) {
-      updateOffset(newOffset + 4);
-    } else if (newOffset > 75 && newOffset < 100) {
-      const remainder = 25;
-
-      // eslint-disable-next-line no-plusplus
-      for (let i = 0; i < remainder; i++) {
-        updateOffset(newOffset + i);
-      }
     }
   }, [scrollY]);
 
@@ -69,15 +64,13 @@ const Landing: FC = () => {
 
       <div
         className="wavez-landing-page__squiggle-container"
-        style={{ top: `${windowHeight - 100}px` }}
+        style={{
+          top: `${squiggleTopOffset}px`,
+          height: `${squiggleHeight}px`,
+          width: `${squiggleWidth}px`,
+        }}
       >
-        <Squiggle
-          className="wavez-landing-page__squiggle"
-          style={{
-            // height: `calc(100vh * 4 - ${windowHeight / 2}`,
-            paddingBottom: '92%',
-          }}
-        />
+        <Squiggle className="wavez-landing-page__squiggle" />
       </div>
 
       <section className="wavez-landing-page__content-section wavez-landing-page__content-section-main">
