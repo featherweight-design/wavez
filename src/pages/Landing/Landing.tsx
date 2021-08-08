@@ -7,6 +7,8 @@ import { useWindowHeight } from '@react-hook/window-size';
 import { ReactComponent as Squiggle } from 'assets/backgrounds/desktop/Squiggle.svg';
 import Logo from 'assets/logo/Waves Wordmark Large.png';
 import MusicIcon from 'assets/icons/Music Icon.png';
+import SoundcloudIcon from 'assets/icons/Soundcloud Icon.png';
+import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
 import './Landing.scss';
 
@@ -114,11 +116,42 @@ const Landing: FC = () => {
       <section
         className={`${classNameRoot}__content-section ${classNameRoot}__content-section-music`}
       >
-        <img
-          className={`${classNameRoot}__`}
-          src={MusicIcon}
-          alt={musicSection.imageAlt}
+        <div
+          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-feature`}
         />
+
+        <article className={`${classNameRoot}__content-section-wrapper`}>
+          <img
+            className={`${classNameRoot}__content-icon`}
+            src={MusicIcon}
+            alt={musicSection.imageAlt}
+          />
+
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <h2 className={`${classNameRoot}__section-title-feature`}>
+              {musicSection.heading}
+            </h2>
+          </div>
+
+          <p className={`${classNameRoot}__section-description`}>
+            {musicSection.description}
+          </p>
+
+          <div className={`${classNameRoot}__content-icon-container`}>
+            <img
+              className={`${classNameRoot}__content-icon-soundcloud`}
+              src={SoundcloudIcon}
+              alt={musicSection.soundcloudAlt}
+            />
+
+            <img
+              className={`${classNameRoot}__content-icon-spotify`}
+              src={SpotifyIcon}
+              alt={musicSection.spotifyAlt}
+            />
+          </div>
+        </article>
       </section>
 
       <section
