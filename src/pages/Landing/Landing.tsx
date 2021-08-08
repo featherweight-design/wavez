@@ -5,14 +5,19 @@ import useScrollPosition from '@react-hook/window-scroll';
 import { useWindowHeight } from '@react-hook/window-size';
 
 import { ReactComponent as Squiggle } from 'assets/backgrounds/desktop/Squiggle.svg';
+import HueIcon from 'assets/icons/Hue Icon.png';
+import LifxIcon from 'assets/icons/Lifx Icon.png';
+import LightsIcon from 'assets/icons/Lightbulb Icon.png';
 import Logo from 'assets/logo/Waves Wordmark Large.png';
 import MusicIcon from 'assets/icons/Music Icon.png';
+import NanoleafIcon from 'assets/icons/Nanoleaf Icon.png';
 import SoundcloudIcon from 'assets/icons/Soundcloud Icon.png';
 import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
 import './Landing.scss';
 
-const { header, mainSection, musicSection } = copyContent.landingPage;
+const { customizeSection, header, lightsSection, mainSection, musicSection } =
+  copyContent.landingPage;
 
 const Landing: FC = () => {
   const [offset, updateOffset] = useState(0);
@@ -117,7 +122,7 @@ const Landing: FC = () => {
         className={`${classNameRoot}__content-section ${classNameRoot}__content-section-music`}
       >
         <div
-          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-feature`}
+          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-feature ${classNameRoot}__background-circle-feature-music`}
         />
 
         <article className={`${classNameRoot}__content-section-wrapper`}>
@@ -134,11 +139,15 @@ const Landing: FC = () => {
             </h2>
           </div>
 
-          <p className={`${classNameRoot}__section-description`}>
+          <p
+            className={`${classNameRoot}__section-description ${classNameRoot}__section-description-music`}
+          >
             {musicSection.description}
           </p>
 
-          <div className={`${classNameRoot}__content-icon-container`}>
+          <div
+            className={`${classNameRoot}__content-icon-container ${classNameRoot}__content-icon-container-music`}
+          >
             <img
               className={`${classNameRoot}__content-icon-soundcloud`}
               src={SoundcloudIcon}
@@ -157,7 +166,52 @@ const Landing: FC = () => {
       <section
         className={`${classNameRoot}__content-section ${classNameRoot}__content-section-lights`}
       >
-        Lights
+        <div
+          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-feature ${classNameRoot}__background-circle-feature-lights`}
+        />
+
+        <article className={`${classNameRoot}__content-section-wrapper`}>
+          <img
+            className={`${classNameRoot}__content-icon`}
+            src={LightsIcon}
+            alt={lightsSection.imageAlt}
+          />
+
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <h2 className={`${classNameRoot}__section-title-feature`}>
+              {lightsSection.heading}
+            </h2>
+          </div>
+
+          <p
+            className={`${classNameRoot}__section-description ${classNameRoot}__section-description-lights`}
+          >
+            {lightsSection.description}
+          </p>
+
+          <div
+            className={`${classNameRoot}__content-icon-container ${classNameRoot}__content-icon-container-lights`}
+          >
+            <img
+              className={`${classNameRoot}__content-icon-lifx`}
+              src={LifxIcon}
+              alt={lightsSection.lifxAlt}
+            />
+
+            <img
+              className={`${classNameRoot}__content-icon-nanoleaf`}
+              src={NanoleafIcon}
+              alt={lightsSection.nanoleafAlt}
+            />
+
+            <img
+              className={`${classNameRoot}__content-icon-hue`}
+              src={HueIcon}
+              alt={lightsSection.hueAlt}
+            />
+          </div>
+        </article>
       </section>
 
       <section
