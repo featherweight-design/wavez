@@ -87,8 +87,14 @@
 
   &__section-description {
     position: relative;
-    left: 9rem;
-    max-width: 500px;
+    max-width: 480px;
+    &-music {
+      left: 9rem;
+    }
+    &-lights {
+      right: 7rem;
+      text-align: right;
+    }
   }
 
   &__section-background {
@@ -131,15 +137,30 @@
 
   &__background-circle-feature {
     position: absolute;
-    top: calc(50% - 6rem);
-    right: calc(50% - 14rem);
     height: 350px;
     width: 350px;
+    &-music {
+      top: calc(50% - 6rem);
+      right: calc(50% - 14rem);
+    }
+    &-lights {
+      top: calc(50% - 6rem);
+      left: calc(50% - 12rem);
+    }
   }
 
   &__content-icon {
     height: 188px;
     width: 188px;
+  }
+
+  &__content-icon-hue {
+    width: 33px;
+  }
+
+  &__content-icon-lifx,
+  &__content-icon-nanoleaf {
+    width: 55px;
   }
 
   &__content-icon-soundcloud {
@@ -152,10 +173,15 @@
 
   &__content-icon-container {
     position: relative;
-    left: 7rem;
     display: grid;
     align-items: center;
     gap: 2rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    &-music {
+      left: 7rem;
+    }
+    &-lights {
+      right: 2rem;
+    }
   }
 }
