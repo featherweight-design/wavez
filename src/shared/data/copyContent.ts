@@ -1,12 +1,5 @@
 export default {
   landingPage: {
-    footer: {
-      copyRight: '© Featherweight Design 2021',
-    },
-    header: {
-      login: 'Login',
-      logout: 'Logout',
-    },
     customizeSection: {
       description:
         'Grab existing color palettes from one device and share them everywhere or crete your own from scratch. Build custom playlists that change your lights with each new song. ',
@@ -14,6 +7,13 @@ export default {
       palettesAlt: 'Wavez - Custom palettes',
       playlistAlt: 'Wavez - Custom playlists',
       scenesAlt: 'Wavez - Custom scenes',
+    },
+    footer: {
+      copyRight: '© Featherweight Design 2021',
+    },
+    header: {
+      login: 'Login',
+      logout: 'Logout',
     },
     lightsSection: {
       description:
