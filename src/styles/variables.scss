@@ -1,6 +1,6 @@
 // Add color, box, measurement, etc. variables here
 
-// Can be used to overwrite variables from @f-design
+// BRAND COLORS
 $brand-white: #dbfffb;
 $brand-xx-light: #b3fff7;
 $brand-x-light: #85fff3;
@@ -15,6 +15,12 @@ $brand-xx-dark: #00423c;
 $brand-black: #000f0e;
 $brand-focus-outline: #0bd5e0;
 
+// ACCENT COLORS
+$accent-customize: #662CCE;
+$accent-lights: #F56C70;
+$accent-music: #2519D0;
+
+// BACKGROUND COLORS
 $background-white: #004d47;
 $background-xx-light: #00423e; // gray-02 => gray-03, gray-01
 $background-x-light: #003330; // gray-04 => gray-05, gray-06
@@ -25,6 +31,7 @@ $background-x-dark: #000f0e; // gray-17 => gray-16, gray-18
 $background-xx-dark: #000f0e; // gray-20 => gray-19, gray-21
 $background-black: #000;
 
+// MISC COLORS
 $black-opaque-50: rgba(4, 5, 16, 0.5);
 $black-opaque-60: rgba(4, 5, 16, 0.6);
 $black-opaque-70: rgba(4, 5, 16, 0.7);
