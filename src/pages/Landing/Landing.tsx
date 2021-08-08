@@ -19,8 +19,14 @@ import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
 import './Landing.scss';
 
-const { customizeSection, header, lightsSection, mainSection, musicSection } =
-  copyContent.landingPage;
+const {
+  customizeSection,
+  footer,
+  header,
+  lightsSection,
+  mainSection,
+  musicSection,
+} = copyContent.landingPage;
 
 const Landing: FC = () => {
   const [offset, updateOffset] = useState(0);
@@ -262,6 +268,12 @@ const Landing: FC = () => {
           </p>
         </article>
       </section>
+
+      <footer className={`${classNameRoot}__footer`}>
+        <div className={`${classNameRoot}__footer-background`} />
+
+        <p className={`${classNameRoot}__footer-text`}>{footer.copyRight}</p>
+      </footer>
     </section>
   );
 };
