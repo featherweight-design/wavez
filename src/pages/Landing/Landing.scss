@@ -88,6 +88,9 @@
   &__section-description {
     position: relative;
     max-width: 480px;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    background-color: $black-opaque-50;
     &-music,
     &-customize {
       left: 9rem;
