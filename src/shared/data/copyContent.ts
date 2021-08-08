@@ -28,6 +28,8 @@ export default {
         'Pull in songs, playlists, and mixes from your favorite artists through Spotify and Soundcloud.',
       heading: 'Music',
       imageAlt: 'Wavez - Your music',
+      soundcloudAlt: 'Soundcloud logo',
+      spotifyAlt: 'Spotify logo',
     },
   },
 };
