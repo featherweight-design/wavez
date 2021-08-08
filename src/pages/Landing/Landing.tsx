@@ -4,12 +4,13 @@ import { useAuth0 } from '@auth0/auth0-react';
 import useScrollPosition from '@react-hook/window-scroll';
 import { useWindowHeight } from '@react-hook/window-size';
 
-import Logo from 'assets/logo/Waves Wordmark Large.png';
 import { ReactComponent as Squiggle } from 'assets/backgrounds/desktop/Squiggle.svg';
+import Logo from 'assets/logo/Waves Wordmark Large.png';
+import MusicIcon from 'assets/icons/Music Icon.png';
 import { copyContent } from 'shared/data';
 import './Landing.scss';
 
-const { imageAlt, loginButton, logoutButton } = copyContent.landingPage;
+const { header, mainSection, musicSection } = copyContent.landingPage;
 
 const Landing: FC = () => {
   const [offset, updateOffset] = useState(0);
@@ -32,16 +33,18 @@ const Landing: FC = () => {
     }
   }, [scrollY]);
 
+  const classNameRoot = 'wavez-landing-page';
+
   return (
-    <section className="wavez-landing-page">
-      <header className="wavez-landing-page__header">
+    <section className={classNameRoot}>
+      <header className={`${classNameRoot}__header`}>
         {user ? (
           <Button variant="brand" onClick={logout}>
-            {logoutButton}
+            {header.logout}
           </Button>
         ) : (
           <Button variant="brand" onClick={loginWithRedirect}>
-            {loginButton}
+            {header.login}
           </Button>
         )}
       </header>
@@ -63,46 +66,70 @@ const Landing: FC = () => {
       </svg>
 
       <div
-        className="wavez-landing-page__squiggle-container"
+        className={`${classNameRoot}__squiggle-container`}
         style={{
           top: `${squiggleTopOffset}px`,
           height: `${squiggleHeight}px`,
           width: `${squiggleWidth}px`,
         }}
       >
-        <Squiggle className="wavez-landing-page__squiggle" />
+        <Squiggle className={`${classNameRoot}__squiggle`} />
       </div>
 
-      <section className="wavez-landing-page__content-section wavez-landing-page__content-section-main">
-        <img className="wavez-landing-page__logo" src={Logo} alt={imageAlt} />
+      <section
+        className={`${classNameRoot}__content-section ${classNameRoot}__content-section-main`}
+      >
+        <img
+          className={`${classNameRoot}__logo`}
+          src={Logo}
+          alt={mainSection.imageAlt}
+        />
 
-        <article className="wavez-landing-page__background-circle wavez-landing-page__background-circle-main">
-          <div className="wavez-landing-page__section-title-container">
-            <div className="wavez-landing-page__section-background" />
-            <p className="wavez-landing-page__section-title">Your music</p>
+        <article
+          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-main`}
+        >
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <p className={`${classNameRoot}__section-title`}>
+              {mainSection.tag1}
+            </p>
           </div>
 
-          <div className="wavez-landing-page__section-title-container">
-            <div className="wavez-landing-page__section-background" />
-            <p className="wavez-landing-page__section-title">Your lights</p>
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <p className={`${classNameRoot}__section-title`}>
+              {mainSection.tag2}
+            </p>
           </div>
 
-          <div className="wavez-landing-page__section-title-container">
-            <div className="wavez-landing-page__section-background" />
-            <p className="wavez-landing-page__section-title">In sync</p>
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <p className={`${classNameRoot}__section-title`}>
+              {mainSection.tag3}
+            </p>
           </div>
         </article>
       </section>
 
-      <section className="wavez-landing-page__content-section wavez-landing-page__content-section-music">
-        Music
+      <section
+        className={`${classNameRoot}__content-section ${classNameRoot}__content-section-music`}
+      >
+        <img
+          className={`${classNameRoot}__`}
+          src={MusicIcon}
+          alt={musicSection.imageAlt}
+        />
       </section>
 
-      <section className="wavez-landing-page__content-section wavez-landing-page__content-section-lights">
+      <section
+        className={`${classNameRoot}__content-section ${classNameRoot}__content-section-lights`}
+      >
         Lights
       </section>
 
-      <section className="wavez-landing-page__content-section wavez-landing-page__content-section-customize">
+      <section
+        className={`${classNameRoot}__content-section ${classNameRoot}__content-section-customize`}
+      >
         Customize
       </section>
     </section>
