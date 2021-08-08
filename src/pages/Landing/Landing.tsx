@@ -11,6 +11,9 @@ import LightsIcon from 'assets/icons/Lightbulb Icon.png';
 import Logo from 'assets/logo/Waves Wordmark Large.png';
 import MusicIcon from 'assets/icons/Music Icon.png';
 import NanoleafIcon from 'assets/icons/Nanoleaf Icon.png';
+import PalettesIcon from 'assets/icons/Palettes Icon.png';
+import PlaylistsIcon from 'assets/icons/Playlists Icon.png';
+import ScenesIcon from 'assets/icons/Scenes Icon.png';
 import SoundcloudIcon from 'assets/icons/Soundcloud Icon.png';
 import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
@@ -217,7 +220,47 @@ const Landing: FC = () => {
       <section
         className={`${classNameRoot}__content-section ${classNameRoot}__content-section-customize`}
       >
-        Customize
+        <div
+          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-feature ${classNameRoot}__background-circle-feature-customize`}
+        />
+
+        <article className={`${classNameRoot}__content-section-wrapper`}>
+          <div className={`${classNameRoot}__customize-icon-wrapper`}>
+            <img
+              className={`${classNameRoot}__content-icon-customize`}
+              src={ScenesIcon}
+              alt={customizeSection.scenesAlt}
+            />
+            <div
+              className={`${classNameRoot}__content-icon-container ${classNameRoot}__content-icon-container-customize`}
+            >
+              <img
+                className={`${classNameRoot}__content-icon-customize`}
+                src={PlaylistsIcon}
+                alt={customizeSection.playlistAlt}
+              />
+
+              <img
+                className={`${classNameRoot}__content-icon-customize`}
+                src={PalettesIcon}
+                alt={customizeSection.palettesAlt}
+              />
+            </div>
+          </div>
+
+          <div className={`${classNameRoot}__section-title-container`}>
+            <div className={`${classNameRoot}__section-background`} />
+            <h2 className={`${classNameRoot}__section-title-feature`}>
+              {customizeSection.heading}
+            </h2>
+          </div>
+
+          <p
+            className={`${classNameRoot}__section-description ${classNameRoot}__section-description-customize`}
+          >
+            {customizeSection.description}
+          </p>
+        </article>
       </section>
     </section>
   );
