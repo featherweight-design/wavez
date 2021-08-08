@@ -66,32 +66,12 @@
     background-image: url('/assets/backgrounds/desktop/Customize Background Image.png');
   }
 
-  &__logo {
-    width: 600px;
-  }
-
-  &__background-circle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 288px;
-    width: 288px;
-    border-radius: 100%;
-    background-color: $black-opaque-50;
-  }
-
-  &__background-circle-main {
-    position: absolute;
-    bottom: -7rem;
-    padding-top: 1rem;
-    z-index: 1;
-  }
-
   &__section-title-container {
     position: relative;
   }
 
-  &__section-title {
+  &__section-title,
+  &__section-title-feature {
     position: relative;
     width: 158px;
     margin-bottom: 0;
@@ -101,11 +81,81 @@
     text-transform: uppercase;
   }
 
+  &__section-title-feature {
+    margin-top: 0.5rem;
+  }
+
+  &__section-description {
+    position: relative;
+    left: 9rem;
+    max-width: 500px;
+  }
+
   &__section-background {
     position: absolute;
     bottom: -10px;
     height: 30px;
     width: 158px;
     background-color: $black-opaque-50;
+  }
+
+  &__content-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  &__logo {
+    width: 600px;
+  }
+
+  &__background-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background-color: $black-opaque-50;
+    z-index: 1;
+  }
+
+  &__background-circle-main {
+    position: absolute;
+    bottom: -6rem;
+    height: 288px;
+    width: 288px;
+    padding-top: 1rem;
+  }
+
+  &__background-circle-feature {
+    position: absolute;
+    top: calc(50% - 6rem);
+    right: calc(50% - 14rem);
+    height: 350px;
+    width: 350px;
+  }
+
+  &__content-icon {
+    height: 188px;
+    width: 188px;
+  }
+
+  &__content-icon-soundcloud {
+    width: 80px;
+  }
+
+  &__content-icon-spotify {
+    width: 66px;
+  }
+
+  &__content-icon-container {
+    position: relative;
+    left: 7rem;
+    display: grid;
+    align-items: center;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
   }
 }
