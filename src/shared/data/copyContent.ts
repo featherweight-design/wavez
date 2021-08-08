@@ -16,6 +16,10 @@ export default {
       description:
         'Control your smart lights including LIFX, Nanoleaf, and Philips Hue and coordinate them all in unison through a single interface.',
       heading: 'Lights',
+      hueAlt: 'Phillips Hue logo',
+      imageAlt: 'Waves - Your lights',
+      lifxAlt: 'LIFX logo',
+      nanoleafAlt: 'Nanoleaf logo',
     },
     mainSection: {
       imageAlt: 'Wavez Logo',
