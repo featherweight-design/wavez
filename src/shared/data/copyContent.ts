@@ -11,6 +11,9 @@ export default {
       description:
         'Grab existing color palettes from one device and share them everywhere or crete your own from scratch. Build custom playlists that change your lights with each new song. ',
       heading: 'Customize',
+      palettesAlt: 'Wavez - Custom palettes',
+      playlistAlt: 'Wavez - Custom playlists',
+      scenesAlt: 'Wavez - Custom scenes',
     },
     lightsSection: {
       description:
