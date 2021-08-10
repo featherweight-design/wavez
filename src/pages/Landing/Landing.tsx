@@ -3,6 +3,7 @@ import { Button } from '@f-design/component-library';
 import { useAuth0 } from '@auth0/auth0-react';
 import useScrollPosition from '@react-hook/window-scroll';
 import { useWindowHeight } from '@react-hook/window-size';
+import clsx from 'clsx';
 
 import { ReactComponent as Squiggle } from 'assets/backgrounds/desktop/Squiggle.svg';
 import HueIcon from 'assets/icons/Hue Icon.png';
@@ -29,15 +30,37 @@ const {
 } = copyContent.landingPage;
 
 const Landing: FC = () => {
-  const [offset, updateOffset] = useState(0);
   const scrollY = useScrollPosition(60);
   const windowHeight = useWindowHeight();
   const { user, loginWithRedirect, logout } = useAuth0();
+  const [offset, updateOffset] = useState(0);
+  const [hiddenElements, updateHiddenElemnts] = useState([
+    'mainBackgroundCircle',
+    'mainTag1',
+    'mainTag2',
+    'mainTag3',
+  ]);
 
   const { scrollHeight } = document.body;
   const squiggleTopOffset = windowHeight - 100;
   const squiggleHeight = scrollHeight - squiggleTopOffset;
   const squiggleWidth = squiggleHeight * 0.38;
+
+  useEffect(() => {
+    removeElementByIndex(hiddenElements, 4);
+  }, []);
+
+  const removeElementByIndex = (elements: string[], count: number): void => {
+    if (count === 0) {
+      return;
+    }
+    setTimeout(() => {
+      const updatedElements = [...elements];
+      updatedElements.splice(0, 1);
+      updateHiddenElemnts(updatedElements);
+      removeElementByIndex(updatedElements, count - 1);
+    }, 1000);
+  };
 
   useEffect(() => {
     const newOffset = Math.round((scrollY * 103) / (squiggleHeight + 45));
@@ -100,23 +123,46 @@ const Landing: FC = () => {
         />
 
         <article
-          className={`${classNameRoot}__background-circle ${classNameRoot}__background-circle-main`}
+          className={clsx({
+            [`${classNameRoot}__background-circle`]: true,
+            [`${classNameRoot}__background-circle-main`]: true,
+            [`${classNameRoot}__background-circle-main-hidden`]:
+              hiddenElements.includes('mainBackgroundCircle'),
+          })}
         >
-          <div className={`${classNameRoot}__section-title-container`}>
+          <div
+            className={clsx({
+              [`${classNameRoot}__section-title-container`]: true,
+              [`${classNameRoot}__section-title-container-hidden`]:
+                hiddenElements.includes('mainTag1'),
+            })}
+          >
             <div className={`${classNameRoot}__section-background`} />
             <p className={`${classNameRoot}__section-title`}>
               {mainSection.tag1}
             </p>
           </div>
 
-          <div className={`${classNameRoot}__section-title-container`}>
+          <div
+            className={clsx({
+              [`${classNameRoot}__section-title-container`]: true,
+              [`${classNameRoot}__section-title-container-hidden`]:
+                hiddenElements.includes('mainTag2'),
+            })}
+          >
             <div className={`${classNameRoot}__section-background`} />
             <p className={`${classNameRoot}__section-title`}>
               {mainSection.tag2}
             </p>
           </div>
 
-          <div className={`${classNameRoot}__section-title-container`}>
+          <div
+            className={clsx({
+              [`${classNameRoot}__section-title-container`]: true,
+              [`${classNameRoot}__section-title-container-hidden`]:
+                hiddenElements.includes('mainTag3'),
+            })}
+          >
             <div className={`${classNameRoot}__section-background`} />
             <p className={`${classNameRoot}__section-title`}>
               {mainSection.tag3}
