@@ -52,17 +52,17 @@
   }
 
   &__content-section-music {
-    top: -2.75rem;
+    top: -1.5rem;
     background-image: url('/assets/backgrounds/desktop/Music Background Image.png');
   }
 
   &__content-section-lights {
-    top: -5.5rem;
+    top: -3rem;
     background-image: url('/assets/backgrounds/desktop/Lights Background Image.png');
   }
 
   &__content-section-customize {
-    top: -13rem;
+    top: -4.5rem;
     background-image: url('/assets/backgrounds/desktop/Customize Background Image.png');
   }
 
@@ -219,7 +219,7 @@
     position: absolute;
     bottom: 0;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     height: 8rem;
     width: 100%;

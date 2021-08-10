@@ -40,9 +40,7 @@ const Landing: FC = () => {
   const squiggleWidth = squiggleHeight * 0.38;
 
   useEffect(() => {
-    const newOffset = Math.round(
-      (scrollY * 103) / ((scrollHeight + squiggleHeight) / 2)
-    );
+    const newOffset = Math.round((scrollY * 103) / (squiggleHeight + 45));
 
     if (newOffset !== offset) {
       updateOffset(newOffset);
