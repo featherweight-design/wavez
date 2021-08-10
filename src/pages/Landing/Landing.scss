@@ -68,6 +68,13 @@
 
   &__section-title-container {
     position: relative;
+    top: 0px;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+    &-hidden {
+      top: -20px;
+      opacity: 0;
+    }
   }
 
   &__section-title,
@@ -129,6 +136,7 @@
     box-sizing: border-box;
     background-color: $black-opaque-50;
     z-index: 1;
+    transition: 0.5s ease-in-out;
   }
 
   &__background-circle-main {
@@ -137,6 +145,9 @@
     height: 288px;
     width: 288px;
     padding-top: 1rem;
+    &-hidden {
+      background-color: transparent;
+    }
   }
 
   &__background-circle-feature {
