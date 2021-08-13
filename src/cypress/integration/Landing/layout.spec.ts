@@ -1,25 +1,102 @@
 import { copyContent } from 'shared/data';
 
-const { heading, subHeading, imageAlt, loginButton } = copyContent.landingPage;
+const {
+  customizeSection,
+  footer,
+  header,
+  lightsSection,
+  mainSection,
+  musicSection,
+} = copyContent.landingPage;
 
 describe('Landing', () => {
   before(() => {
     cy.visit('/');
   });
 
-  it('Should have a heading', () => {
-    cy.get('h1').findByText(heading).should('exist');
+  describe('Main section', () => {
+    it('Should have a Wavez logo', () => {
+      cy.findByAltText(mainSection.imageAlt).should('exist');
+    });
+
+    it('Should have three tag lines', () => {
+      cy.get('p').findByText(mainSection.tag1).should('exist');
+      cy.get('p').findByText(mainSection.tag2).should('exist');
+      cy.get('p').findByText(mainSection.tag3).should('exist');
+    });
+
+    it('Should have a "Login" button', () => {
+      cy.findByText(header.login).should('exist');
+    });
   });
 
-  it('Should have a sub-heading', () => {
-    cy.get('p').findByText(subHeading).should('exist');
+  describe('Music section', () => {
+    it('Should have a section image', () => {
+      cy.findByAltText(musicSection.imageAlt);
+    });
+
+    it('Should have a heading', () => {
+      cy.findByText(musicSection.heading);
+    });
+
+    it('Should have a description', () => {
+      cy.findByText(musicSection.description);
+    });
+
+    it('Should have a Soundcloud logo', () => {
+      cy.findByAltText(musicSection.soundcloudAlt);
+    });
+
+    it('Should have a Spotify logo', () => {
+      cy.findByAltText(musicSection.spotifyAlt);
+    });
   });
 
-  it('Should have an image', () => {
-    cy.findByAltText(imageAlt).should('exist');
+  describe('Lights section', () => {
+    it('Should have a section image', () => {
+      cy.findByAltText(lightsSection.imageAlt);
+    });
+
+    it('Should have a heading', () => {
+      cy.findByText(lightsSection.heading);
+    });
+
+    it('Should have a description', () => {
+      cy.findByText(lightsSection.description);
+    });
+
+    it('Should have a LIFX logo', () => {
+      cy.findByAltText(lightsSection.lifxAlt);
+    });
+
+    it('Should have a Nanoleaf logo', () => {
+      cy.findByAltText(lightsSection.nanoleafAlt);
+    });
+
+    it('Should have a Hue logo', () => {
+      cy.findByAltText(lightsSection.hueAlt);
+    });
   });
 
-  it('Should have a button to get a Rick and Morty character', () => {
-    cy.findByText(loginButton).should('exist');
+  describe('Customize section', () => {
+    it('Should have three section images', () => {
+      cy.findByAltText(customizeSection.palettesAlt);
+      cy.findByAltText(customizeSection.playlistAlt);
+      cy.findByAltText(customizeSection.scenesAlt);
+    });
+
+    it('Should have a heading', () => {
+      cy.findByText(customizeSection.heading);
+    });
+
+    it('Should have a description', () => {
+      cy.findByText(customizeSection.description);
+    });
+  });
+
+  describe('Footer', () => {
+    it('Should have a copy right', () => {
+      cy.findByText(footer.copyRight);
+    });
   });
 });
