@@ -20,9 +20,9 @@ describe('Landing', () => {
     });
 
     it('Should have three tag lines', () => {
-      cy.get('p').findByText(mainSection.tag1).should('exist');
-      cy.get('p').findByText(mainSection.tag2).should('exist');
-      cy.get('p').findByText(mainSection.tag3).should('exist');
+      cy.findByText(mainSection.tag1).should('exist');
+      cy.findByText(mainSection.tag2).should('exist');
+      cy.findByText(mainSection.tag3).should('exist');
     });
 
     it('Should have a "Login" button', () => {
