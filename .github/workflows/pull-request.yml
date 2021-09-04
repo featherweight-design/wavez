@@ -10,6 +10,8 @@ jobs:
   # Set the job key. This key is displayed as the job name
   # when a job name is not provided
   pr-checks:
+    env:
+      working-directory: ./client
     name: Pull Request Checks
     runs-on: ubuntu-latest
     steps:
@@ -17,14 +19,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
+        working-directory: ${{env.working-directory}}
         run: yarn install --frozen-lockfile
 
       # Runs actions specific script that does not fix errors
       - name: Check linting
+        working-directory: ${{env.working-directory}}
         run: yarn run lint-ci
 
       # Runs all jest tests
       - name: Check Jest tests
+        working-directory: ${{env.working-directory}}
         run: yarn run test-ci
 
       # Run all Cypress tests in Chrome
@@ -33,7 +38,9 @@ jobs:
         with:
             browser: chrome
             start: yarn start
+            working-directory: ${{env.working-directory}}
 
       # Ensure that their are no errors in the build
       - name: Check build
+        working-directory: ${{env.working-directory}}
         run: yarn build
