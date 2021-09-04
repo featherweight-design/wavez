@@ -1,26 +1,34 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "./dist/",
+    "baseUrl": "./src",
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["es2018", "dom", "esnext", "esnext.asynciterable"], // Last item for apollo
     "sourceMap": true,
-    "declaration": true,
-    "noImplicitAny": true,
-    "strict": true,
-    "module": "esnext",
-    "target": "es6",
+    "outDir": "./dist",
     "moduleResolution": "node",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "declaration": false,
+    "composite": false,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["cypress", "@testing-library/cypress"]
+    "allowSyntheticDefaultImports": true, // Allows removal of import * as
+    "esModuleInterop": true, // Allows removal of import * as
+    "emitDecoratorMetadata": true, // For type-graphql
+    "experimentalDecorators": true, // For type-graphql
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts", "./prisma/**/*.ts", "./functions/**/*.ts"],
+  "ts-node": {
+    "files": true,
+    "require": ["tsconfig-paths/register"]
+  },
+  "files": ["src/environment.d.ts"]
 }

@@ -1,103 +1,59 @@
 {
-  "name": "feather",
-  "version": "0.1.0",
-  "description": "The primary front-end repo template for application development. Uses CRA and TypeScript with Eslint, Tslint, Prettier, Jest, and Cypress configurations ready to go!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/featherweight-design/feather.git"
-  },
-  "bugs": {
-    "url": "https://github.com/featherweight-design/feather/labels/%F0%9F%90%9B%20%20Bug"
-  },
-  "author": "Featherweight Design",
-  "license": "MIT",
-  "private": true,
+  "name": "wavez-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "tsc -p tsconfig.build.json && react-scripts build",
-    "test": "react-scripts test",
-    "test-ci": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject",
+    "client": "cd client && yarn start",
+    "server": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "postinstall": "cd client && yarn install",
+    "bundle": "cpx 'src/**/*' functions/bundle",
     "clean": "rm -rf node_modules yarn.lock && yarn install",
     "format": "prettier --write \"src/**/*.ts?(x)\"",
-    "lint": "eslint './src/**/*.{js,ts,tsx,mdx}' --fix",
-    "lint-ci": "eslint './src/**/*.{js,ts,tsx,mdx}'",
-    "cy-open": "cypress open",
-    "cy-run": "cypress run",
-    "upgrade": "yarn upgrade-interactive --latest"
+    "lint": "eslint './src/**/*.{js,ts}' --fix",
+    "generate": "npx prisma generate",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:reset": "npx prisma migrate reset",
+    "studio": "npx prisma studio"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "./src/**/{components,pages,utilities}/**/*.ts?(x)"
-    ],
-    "testMatch": [
-      "./**/__tests__/*.test.ts?(x)"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.4",
+    "@types/node": "^16.0.0",
+    "@types/node-fetch": "^2.5.10",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "cpx": "^1.5.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
+    "prisma": "^2.26.0",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@apollo/client": "^3.4.1",
-    "@auth0/auth0-react": "^1.6.0",
-    "@f-design/component-library": "^2.1.0",
-    "@react-hook/window-scroll": "^1.3.0",
-    "@react-hook/window-size": "^3.0.7",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
-    "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.15",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.6",
-    "clsx": "^1.1.1",
-    "graphql": "^15.4.0",
-    "node-sass": "4.14.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "typescript": "^4.3.5",
-    "web-vitals": "^1.0.1"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@testing-library/cypress": "^7.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
-    "cypress": "^8.1.0",
-    "eslint": "^7.16.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.3",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.6",
-    "prettier": "^2.2.1",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn run lint-ci"
-    }
+    "@prisma/client": "^2.29.1",
+    "@sendgrid/mail": "^7.4.6",
+    "@types/graphql-fields": "^1.3.3",
+    "apollo-server": "^2.25.2",
+    "apollo-server-lambda": "^3.3.0",
+    "class-validator": "^0.13.1",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "graphql-fields": "^2.0.3",
+    "graphql-scalars": "^1.10.0",
+    "jsonwebtoken": "^8.5.1",
+    "local-devices": "^3.1.0",
+    "netlify-lambda": "^2.0.14",
+    "node-fetch": "^2.6.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.1.8",
+    "type-graphql": "^1.1.1"
   }
 }

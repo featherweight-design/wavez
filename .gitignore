@@ -29,3 +29,5 @@ yarn-error.log*
 # personal
 /notes
 scratchpad.js
+# Local Netlify folder
+.netlify
