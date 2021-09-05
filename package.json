@@ -30,8 +30,10 @@
     "test-client": "cd client && yarn test",
     "test-client-ci": "cd client && yarn test-ci",
     "generate": "npx prisma generate",
+    "migrate-deploy": "npx prisma migrate deploy",
     "migrate-dev": "npx prisma migrate dev",
     "migrate-reset": "npx prisma migrate reset",
+    "seed": "npx prisma db seed",
     "studio": "npx prisma studio"
   },
   "jest": {
