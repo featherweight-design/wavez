@@ -12,7 +12,7 @@ node_modules/
 /src/cypress/videos/*
 
 # production
-/build
+/client/build
 
 # misc
 .DS_Store
@@ -27,8 +27,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# personal
+# Dev
 /notes
-scratchpad.js
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.node-version
+.vscode
+scratchpad.*
+/functions/bundle
+
 # Local Netlify folder
 .netlify
