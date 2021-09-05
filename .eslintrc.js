@@ -44,6 +44,15 @@ module.exports = {
     // Place to specify ESLint rules. Can be used to overwrite rules
     // specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    // Turned off due to unnecessary conflict with TypeGraphQL resolvers
+    'class-methods-use-this': 'off',
+    // Turned off to allow for object exports in index with only one property
+    'import/prefer-default-export': 'off',
+    // Turn off no-shadow for JS in favor of TS version due to false positives
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    // Turned off to allow multiple TypeGraphQL classes
+    'max-classes-per-file': 'off',
     // Turned off due to conflict with the second rule below, which should be used with TS
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { variables: false }],
@@ -81,22 +90,22 @@ module.exports = {
       'error',
       {
         env: 'apollo',
-        schemaJson: require('./rickAndMortySchema.json'),
+        schemaJson: require('./schema.json'),
       },
     ],
     // Requires that all GQL operations be names
     'graphql/named-operations': [
       'error',
       {
-        schemaJson: require('./rickAndMortySchema.json'),
+        schemaJson: require('./schema.json'),
       },
     ],
-    // Can be enabled to lint required fielqqqds in a GQL schema
+    // Can be enabled to lint required fields in a GQL schema
     // 'graphql/required-fields': [
     //   'error',
     //   {
     //     env: 'apollo',
-    //     schemaJson: require('./rickAndMortySchema.json'),
+    //     schemaJson: require('./schema.json'),
     //     requiredFields: ['uuid'],
     //   },
     // ],

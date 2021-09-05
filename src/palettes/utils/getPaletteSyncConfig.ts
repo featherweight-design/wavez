@@ -33,10 +33,9 @@ const getPaletteSyncConfig = async ({
     (_element, index) => paletteCheck[index]
   );
 
-  const createPalettes = effectsDetails.filter(({ animName }) =>
-    connectPalettes.find(palette => palette.animName === animName)
-      ? false
-      : true
+  const createPalettes = effectsDetails.filter(
+    ({ animName }) =>
+      !connectPalettes.find(palette => palette.animName === animName)
   );
 
   const paletteConfig = {

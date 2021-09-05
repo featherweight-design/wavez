@@ -1,4 +1,4 @@
-import { UserInputError } from 'apollo-server-errors';
+import { UserInputError } from 'apollo-server';
 import { Arg, Ctx, Directive, Mutation, Resolver } from 'type-graphql';
 
 import { Context } from 'types';

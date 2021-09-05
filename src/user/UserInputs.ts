@@ -1,7 +1,7 @@
-import { Role } from '.prisma/client';
 import { Field, ID, InputType } from 'type-graphql';
 
 import { RoleEnum } from 'types';
+import { Role } from '.prisma/client';
 
 @InputType()
 class CreateUserInput {

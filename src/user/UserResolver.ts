@@ -13,14 +13,14 @@ import {
 import { Device } from 'device';
 import { Context, RoleEnum } from 'types';
 import { errors as accessKeyErrors } from 'accessKey/definitions';
+import { Palette } from 'palettes';
+import { UserInputError } from 'apollo-server';
 import { SignInResponse, User } from './User';
 import {
   CreateUserInput,
   UpdateUserAdminInput,
   UpdateUserInput,
 } from './UserInputs';
-import { Palette } from 'palettes';
-import { UserInputError } from 'apollo-server';
 import { copy, errors } from './definitions';
 
 const { descriptions } = copy;

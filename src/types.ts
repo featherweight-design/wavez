@@ -26,6 +26,7 @@ export interface ErrorResponse {
 
 //* Nanoleaf
 export interface NanoleafAuthenticationResponse {
+  // eslint-disable-next-line camelcase
   auth_token: string;
 }
 

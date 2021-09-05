@@ -1,5 +1,7 @@
 // Disabled because of required directive typings with any
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// Disabled to allow for reassignment of field.resolve
+/* eslint-disable no-param-reassign */
 import { Role } from '@prisma/client';
 import {
   AuthenticationError,
