@@ -21,8 +21,8 @@
     "bundle": "cpx 'src/**/*' functions/bundle",
     "clean": "rm -rf node_modules yarn.lock && yarn install",
     "format": "prettier --write \"src/**/*.ts?(x)\"",
-    "lint-all": "yarn lint-server && yarn lint-client",
-    "lint-all-ci": "yarn lint-server-ci && yarn lint-client-ci",
+    "lint": "yarn lint-server && yarn lint-client",
+    "lint-ci": "yarn lint-server-ci && yarn lint-client-ci",
     "lint-client": "cd client && yarn lint",
     "lint-client-ci": "cd client && yarn lint-ci",
     "lint-server": "eslint './src/**/*.{js,ts}' --fix",
@@ -49,10 +49,12 @@
     "@sendgrid/mail": "^7.4.6",
     "@types/graphql-fields": "^1.3.3",
     "apollo-server": "^2.25.2",
+    "apollo-server-core": "^3.3.0",
     "apollo-server-lambda": "^3.3.0",
     "class-validator": "^0.13.1",
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
+    "graphql": "^15.5.2",
     "graphql-fields": "^2.0.3",
     "graphql-scalars": "^1.10.0",
     "jsonwebtoken": "^8.5.1",
@@ -94,7 +96,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn lint-all"
+      "pre-push": "yarn lint"
     }
   }
 }
