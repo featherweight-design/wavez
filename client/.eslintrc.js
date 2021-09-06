@@ -1,4 +1,6 @@
 module.exports = {
+  extends: '../eslintrc.js',
+  root: true,
   env: {
     browser: true,
     amd: true,
@@ -6,8 +8,6 @@ module.exports = {
     'jest/globals': true,
     'cypress/globals': true,
   },
-  // Specifies the ESLint parser for TS
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     // Allows for the parsing of modern ECMAScript features
     ecmaVersion: 2018,
@@ -17,8 +17,8 @@ module.exports = {
       // Allows for the parsing of JSX
       jsx: true,
     },
+    project: './tsconfig.json',
   },
-  ignorePatterns: ['**/notes/*.{js,json,md,ts}'],
   extends: [
     // Enables airbnb eslint rules (https://www.npmjs.com/package/eslint-config-airbnb)
     'airbnb',
