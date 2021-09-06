@@ -1,11 +1,9 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 
-import { endpoints } from 'shared/data';
-
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: endpoints.graphql,
+    uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
   }),
 });
 
