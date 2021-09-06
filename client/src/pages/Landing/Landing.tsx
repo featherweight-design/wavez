@@ -74,6 +74,8 @@ const Landing: FC = () => {
     })();
   }, [user]);
 
+  console.log({ user, data, loading, error });
+
   const removeElementByIndex = (elements: string[], count: number): void => {
     if (count === 0) {
       return;
