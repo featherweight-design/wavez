@@ -8,6 +8,7 @@ const SIGN_IN = gql`
         email
         name
         role
+        invites
       }
       token
     }

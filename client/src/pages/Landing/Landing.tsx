@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { Button } from '@f-design/component-library';
+import { useMutation } from '@apollo/client';
 import { useAuth0 } from '@auth0/auth0-react';
 import useScrollPosition from '@react-hook/window-scroll';
 import { useWindowHeight } from '@react-hook/window-size';
@@ -18,6 +19,8 @@ import ScenesIcon from 'assets/icons/Scenes Icon.png';
 import SoundcloudIcon from 'assets/icons/Soundcloud Icon.png';
 import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
+import SIGN_IN from 'shared/mutations/SignIn';
+
 import './Landing.scss';
 
 const {
@@ -33,8 +36,21 @@ const Landing: FC = () => {
   const scrollY = useScrollPosition(60);
   const windowHeight = useWindowHeight();
   const { user, loginWithRedirect, logout } = useAuth0();
+  const [signIn, { data, loading, error }] = useMutation<
+    {
+      user: {
+        id: string;
+        name: string;
+        email: string;
+        invites: number;
+        role: string;
+      };
+      token: string;
+    },
+    { email: string }
+  >(SIGN_IN);
   const [offset, updateOffset] = useState(0);
-  const [hiddenElements, updateHiddenElemnts] = useState([
+  const [hiddenElements, updateHiddenElements] = useState([
     'mainBackgroundCircle',
     'mainTag1',
     'mainTag2',
@@ -50,6 +66,14 @@ const Landing: FC = () => {
     removeElementByIndex(hiddenElements, 4);
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      if (user?.email) {
+        await signIn({ variables: { email: user.email } });
+      }
+    })();
+  }, [user]);
+
   const removeElementByIndex = (elements: string[], count: number): void => {
     if (count === 0) {
       return;
@@ -57,7 +81,7 @@ const Landing: FC = () => {
     setTimeout(() => {
       const updatedElements = [...elements];
       updatedElements.splice(0, 1);
-      updateHiddenElemnts(updatedElements);
+      updateHiddenElements(updatedElements);
       removeElementByIndex(updatedElements, count - 1);
     }, 1000);
   };

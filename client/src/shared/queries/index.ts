@@ -1,3 +1,3 @@
-import GET_RICK_AND_MORTY_CHARACTERS_BY_ID from './GetCurrentUser';
+import GET_CURRENT_USER from './GetCurrentUser';
 
-export { GET_RICK_AND_MORTY_CHARACTERS_BY_ID };
+export { GET_CURRENT_USER };
