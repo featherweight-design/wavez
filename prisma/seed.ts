@@ -7,6 +7,7 @@ async function main() {
       email: 'hartigan.hm@gmail.com',
       name: 'Hugh Hartigan',
       role: 'ADMIN',
+      invites: 100,
     },
   });
 
