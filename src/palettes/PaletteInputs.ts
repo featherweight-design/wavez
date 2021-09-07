@@ -1,54 +1,56 @@
 import { DeviceType } from '@prisma/client';
 import { Field, InputType } from 'type-graphql';
 
+import { DeviceEnum } from 'types';
+
 @InputType()
 class CreatePaletteInput {
-  @Field()
+  @Field(() => String)
   name: string;
 
-  @Field()
+  @Field(() => String)
   colors: string;
 }
 
 @InputType()
 class SetPaletteByDeviceIdInput {
-  @Field()
+  @Field(() => String)
   id: string;
 
-  @Field()
+  @Field(() => String)
   deviceId: string;
 }
 
 @InputType()
 class SetPaletteByDeviceType {
-  @Field()
+  @Field(() => String)
   id: string;
 
-  @Field()
+  @Field(() => DeviceEnum)
   type: DeviceType;
 }
 
 @InputType()
 class UpdatePaletteColorsInput {
-  @Field()
+  @Field(() => String)
   id: string;
 
-  @Field()
+  @Field(() => String)
   newColors: string;
 
-  @Field()
+  @Field(() => Boolean)
   shouldUpdateDevices?: boolean;
 }
 
 @InputType()
 class UpdatePaletteNameInput {
-  @Field()
+  @Field(() => String)
   id: string;
 
-  @Field()
+  @Field(() => String)
   newName: string;
 
-  @Field()
+  @Field(() => Boolean)
   shouldUpdateDevices?: boolean;
 }
 

@@ -85,7 +85,7 @@ class PaletteResolver {
     nullable: true,
   })
   async getPaletteById(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma, user }: Context
   ): Promise<Palette | null> {
     const palette = await prisma.palette.findUnique({
@@ -109,7 +109,7 @@ class PaletteResolver {
   @Directive('@authenticated')
   @Mutation(() => Palette, { description: descriptions.createPalette })
   async createPalette(
-    @Arg('input') input: CreatePaletteInput,
+    @Arg('input', () => CreatePaletteInput) input: CreatePaletteInput,
     @Ctx() { prisma, user }: Context
   ): Promise<Palette> {
     try {
@@ -138,7 +138,7 @@ class PaletteResolver {
   @Directive('@authenticated')
   @Mutation(() => String, { description: descriptions.deletePaletteById })
   async deletePaletteById(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma, user }: Context
   ): Promise<string> {
     const palette = await prisma.palette.findUnique({
@@ -169,7 +169,7 @@ class PaletteResolver {
     description: descriptions.setPaletteToAllDevices,
   })
   async setPaletteToAllDevices(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -236,7 +236,8 @@ class PaletteResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.setPaletteToDeviceById })
   async setPaletteToDeviceById(
-    @Arg('input') input: SetPaletteByDeviceIdInput,
+    @Arg('input', () => SetPaletteByDeviceIdInput)
+    input: SetPaletteByDeviceIdInput,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -302,7 +303,7 @@ class PaletteResolver {
     description: descriptions.setPaletteToDeviceByType,
   })
   async setPaletteToDeviceByType(
-    @Arg('input') input: SetPaletteByDeviceType,
+    @Arg('input', () => SetPaletteByDeviceType) input: SetPaletteByDeviceType,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -370,7 +371,7 @@ class PaletteResolver {
     description: descriptions.syncPalettesByDeviceId,
   })
   async syncPalettesByDeviceId(
-    @Arg('deviceId') deviceId: string,
+    @Arg('deviceId', () => String) deviceId: string,
     @Ctx() { prisma, user }: Context
   ): Promise<Palette[]> {
     try {
@@ -437,7 +438,7 @@ class PaletteResolver {
   @Directive('@authenticated')
   @Mutation(() => Palette, { description: descriptions.updatePaletteNameById })
   async updatePaletteNameById(
-    @Arg('input') input: UpdatePaletteNameInput,
+    @Arg('input', () => UpdatePaletteNameInput) input: UpdatePaletteNameInput,
     @Ctx() { prisma, user }: Context
   ): Promise<Palette> {
     try {
@@ -517,7 +518,8 @@ class PaletteResolver {
     description: descriptions.updatePaletteColorsById,
   })
   async updatePaletteColorsById(
-    @Arg('input') input: UpdatePaletteColorsInput,
+    @Arg('input', () => UpdatePaletteColorsInput)
+    input: UpdatePaletteColorsInput,
     @Ctx() { prisma, user }: Context
   ): Promise<Palette> {
     try {
