@@ -5,7 +5,7 @@ class NanoleafAuthToken {
   @Field(() => ID)
   id: string;
 
-  @Field()
+  @Field(() => String)
   token: string;
 }
 

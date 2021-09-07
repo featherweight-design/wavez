@@ -19,8 +19,8 @@ class NanoleafStateResolver {
     description: descriptions.updateCurrentStateByDeviceId,
   })
   async updateCurrentStateByDeviceId(
-    @Arg('deviceId') deviceId: string,
-    @Arg('stateInput') stateInput: NanoleafStateInput,
+    @Arg('deviceId', () => String) deviceId: string,
+    @Arg('stateInput', () => NanoleafStateInput) stateInput: NanoleafStateInput,
     @Ctx() { prisma }: Context
   ): Promise<boolean> {
     try {
@@ -56,7 +56,7 @@ class NanoleafStateResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.updateCurrentStateAll })
   async updateCurrentStateAll(
-    @Arg('stateInput') stateInput: NanoleafStateInput,
+    @Arg('stateInput', () => NanoleafStateInput) stateInput: NanoleafStateInput,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {

@@ -46,8 +46,12 @@ class NanoleafAuthTokenResolver {
   })
   async authenticateWithDeviceByUserId(
     @Ctx() { prisma, user }: Context,
-    @Arg('input') input: AuthenticateNewUserInput,
-    @Arg('shouldSyncPalettes', { nullable: true, defaultValue: false })
+    @Arg('input', () => AuthenticateNewUserInput)
+    input: AuthenticateNewUserInput,
+    @Arg('shouldSyncPalettes', () => Boolean, {
+      nullable: true,
+      defaultValue: false,
+    })
     shouldSyncPalettes?: boolean
   ): Promise<string> {
     try {
@@ -114,7 +118,7 @@ class NanoleafAuthTokenResolver {
     description: descriptions.deleteNanoleafAuthToken,
   })
   async deleteNanoleafAuthToken(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma }: Context
   ): Promise<boolean> {
     try {

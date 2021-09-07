@@ -4,13 +4,13 @@ import { ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
 class NanoleafStateValue {
-  @Field()
+  @Field(() => String)
   value: string;
 
-  @Field()
+  @Field(() => String)
   min?: string;
 
-  @Field()
+  @Field(() => String)
   max?: string;
 }
 
@@ -31,7 +31,7 @@ class NanoleafState {
   @Field(() => NanoleafStateValue, { nullable: true })
   ct: NanoleafStateValue | null;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   colorMode?: string;
 }
 

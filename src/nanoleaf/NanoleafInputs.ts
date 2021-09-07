@@ -2,25 +2,25 @@ import { Field, InputType } from 'type-graphql';
 
 @InputType()
 class AuthenticateNewUserInput {
-  @Field()
+  @Field(() => String)
   ip: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 
-  @Field()
+  @Field(() => String)
   mac: string;
 }
 
 @InputType()
 class NanoleafStateValueInput {
-  @Field()
+  @Field(() => String)
   value: string;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   min?: string;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   max?: string;
 }
 
@@ -41,7 +41,7 @@ class NanoleafStateInput {
   @Field(() => NanoleafStateValueInput, { nullable: true })
   ct?: NanoleafStateValueInput | null;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   colorMode?: string;
 }
 
