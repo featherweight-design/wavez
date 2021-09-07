@@ -2,4 +2,4 @@
   command = "yarn deploy"
   functions = "src/functions"
 [functions]
-  external_node_modules = ["type-graphql", "any-promise", "express"]
+  external_node_modules = ["type-graphql", "any-promise", "express", "reflect-metadata"]
