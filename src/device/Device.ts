@@ -1,15 +1,16 @@
 import { DeviceType } from '@prisma/client';
 import { Field, ID, ObjectType } from 'type-graphql';
+import { DeviceEnum } from 'types';
 
 @ObjectType()
 class WifiDevice {
-  @Field()
+  @Field(() => String)
   ip: string;
 
-  @Field()
+  @Field(() => String)
   mac: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 }
 
@@ -18,10 +19,10 @@ class Device extends WifiDevice {
   @Field(() => ID)
   id: string;
 
-  @Field()
+  @Field(() => DeviceEnum)
   type: DeviceType;
 
-  @Field()
+  @Field(() => String)
   userId: string;
 }
 

@@ -14,7 +14,7 @@ import find from 'local-devices';
 
 import { NanoleafAuthToken, NanoleafProperties } from 'nanoleaf';
 import { Palette } from 'palettes';
-import { Context, DeviceMacSubstringByType } from 'types';
+import { Context, DeviceEnum, DeviceMacSubstringByType } from 'types';
 import { User } from 'user';
 import { updateCurrentState } from 'nanoleaf/utils';
 import { errors as userErrors } from 'user/definitions';
@@ -157,7 +157,7 @@ class DeviceResolver {
     nullable: true,
   })
   async getDeviceById(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma, user }: Context
   ): Promise<Device | null> {
     try {
@@ -188,7 +188,7 @@ class DeviceResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.deleteDeviceById })
   async deleteDeviceById(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -221,7 +221,7 @@ class DeviceResolver {
     description: descriptions.updateAllDevicePowerByUserId,
   })
   async updateAllDevicePowerByUserId(
-    @Arg('isOn') isOn: boolean,
+    @Arg('isOn', () => Boolean) isOn: boolean,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -263,8 +263,8 @@ class DeviceResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.updateDevicePowerById })
   async updateDevicePowerById(
-    @Arg('id') id: string,
-    @Arg('isOn') isOn: boolean,
+    @Arg('id', () => String) id: string,
+    @Arg('isOn', () => Boolean) isOn: boolean,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -310,8 +310,8 @@ class DeviceResolver {
     description: descriptions.updateDevicePowerByType,
   })
   async updateDevicePowerByType(
-    @Arg('type') type: DeviceType,
-    @Arg('isOn') isOn: boolean,
+    @Arg('type', () => DeviceEnum) type: DeviceType,
+    @Arg('isOn', () => Boolean) isOn: boolean,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
@@ -358,8 +358,8 @@ class DeviceResolver {
     nullable: true,
   })
   async updateDeviceNameById(
-    @Arg('id') id: string,
-    @Arg('name') name: string,
+    @Arg('id', () => String) id: string,
+    @Arg('name', () => String) name: string,
     @Ctx() { prisma, user }: Context
   ): Promise<Device | null> {
     try {

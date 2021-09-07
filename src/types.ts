@@ -12,6 +12,16 @@ export interface Context extends ApolloContext {
   user: User | null;
 }
 
+export enum DeviceEnum {
+  NANOLEAF = 'NANOLEAF',
+  LIFX = 'LIFX',
+  HUE = 'HUE',
+}
+
+registerEnumType(DeviceEnum, {
+  name: 'DeviceEnum',
+});
+
 export enum DeviceMacSubstringByType {
   NANOLEAF = '02:55:da',
   LIFX = 'd0:73:d5',

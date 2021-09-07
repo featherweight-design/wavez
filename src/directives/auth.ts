@@ -18,7 +18,7 @@ import { Context, RoleEnum } from 'types';
 import { User } from 'user';
 import { errors as userErrors } from 'user/definitions';
 
-const ROLES_HIERARCY: Role[] = [
+const ROLES_HIERARCHY: Role[] = [
   RoleEnum.BASIC,
   RoleEnum.BETA,
   RoleEnum.ALPHA,
@@ -61,7 +61,7 @@ class AuthorizationDirective extends SchemaDirectiveVisitor {
 
     // Grab the role for this.args and compare against user.role
     const { role } = this.args;
-    const authorizationHierarchy = ROLES_HIERARCY.indexOf(role);
+    const authorizationHierarchy = ROLES_HIERARCHY.indexOf(role);
 
     field.resolve = (
       root,
@@ -70,7 +70,7 @@ class AuthorizationDirective extends SchemaDirectiveVisitor {
       info
     ): GraphQLFieldResolver<typeof root, typeof context> => {
       const { user } = context as Context;
-      const userRoleHierarcy = ROLES_HIERARCY.indexOf((user as User)?.role);
+      const userRoleHierarcy = ROLES_HIERARCHY.indexOf((user as User)?.role);
 
       if (userRoleHierarcy < authorizationHierarchy) {
         // If user.role isn't there throw an error
