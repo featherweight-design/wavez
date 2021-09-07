@@ -36,6 +36,9 @@
     "seed": "npx prisma db seed",
     "studio": "npx prisma studio"
   },
+  "resolutions":{
+    "graphql":"^15.0.0"
+  },
   "jest": {
     "collectCoverageFrom": [
       "./client/src/**/{components,pages,utilities}/**/*.ts?(x)"
