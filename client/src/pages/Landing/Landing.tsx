@@ -69,7 +69,11 @@ const Landing: FC = () => {
   useEffect(() => {
     (async () => {
       if (user?.email) {
-        await signIn({ variables: { email: user.email } });
+        try {
+          await signIn({ variables: { email: user.email } });
+        } catch (error) {
+          console.error(error);
+        }
       }
     })();
   }, [user]);
