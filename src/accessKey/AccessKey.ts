@@ -5,13 +5,13 @@ class AccessKey {
   @Field(() => ID)
   id: string;
 
-  @Field()
+  @Field(() => String)
   key: string;
 
-  @Field()
+  @Field(() => String)
   email: string;
 
-  @Field()
+  @Field(() => String)
   userId: string;
 }
 
