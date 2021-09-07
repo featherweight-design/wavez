@@ -8,16 +8,16 @@ class User {
   @Field(() => ID)
   id: string;
 
-  @Field()
+  @Field(() => String)
   email: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 
   @Field(() => RoleEnum)
   role: Role;
 
-  @Field()
+  @Field(() => Number)
   invites: number;
 }
 
@@ -26,7 +26,7 @@ class SignInResponse {
   @Field(() => User)
   user: User;
 
-  @Field()
+  @Field(() => String)
   token: string;
 }
 

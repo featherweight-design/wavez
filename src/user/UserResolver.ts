@@ -82,7 +82,7 @@ class UserResolver {
 
   @Mutation(() => SignInResponse, { description: descriptions.signUp })
   async signUp(
-    @Arg('input') input: CreateUserInput,
+    @Arg('input', () => CreateUserInput) input: CreateUserInput,
     @Ctx() { createToken, prisma }: Context
   ): Promise<SignInResponse> {
     try {
@@ -156,7 +156,7 @@ class UserResolver {
 
   @Mutation(() => SignInResponse, { description: descriptions.signIn })
   async signIn(
-    @Arg('email') email: string,
+    @Arg('email', () => String) email: string,
     @Ctx() { createToken, prisma }: Context
   ): Promise<SignInResponse> {
     try {
@@ -183,7 +183,7 @@ class UserResolver {
   @Directive('@authenticated')
   @Mutation(() => User, { description: descriptions.updateUser })
   async updateUser(
-    @Arg('input') input: UpdateUserInput,
+    @Arg('input', () => UpdateUserInput) input: UpdateUserInput,
     @Ctx() { prisma, user }: Context
   ): Promise<User> {
     try {
@@ -206,7 +206,7 @@ class UserResolver {
   @Directive('@authenticated')
   @Mutation(() => User, { description: descriptions.updateUserById })
   async updateUserById(
-    @Arg('input') input: UpdateUserAdminInput,
+    @Arg('input', () => UpdateUserAdminInput) input: UpdateUserAdminInput,
     @Ctx() { prisma }: Context
   ): Promise<User> {
     try {

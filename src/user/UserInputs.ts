@@ -5,13 +5,13 @@ import { Role } from '.prisma/client';
 
 @InputType()
 class CreateUserInput {
-  @Field()
+  @Field(() => String)
   accessKey: string;
 
-  @Field()
+  @Field(() => String)
   email: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 }
 
