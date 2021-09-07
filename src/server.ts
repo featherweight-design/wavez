@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 import { PrismaClient } from '@prisma/client';
-import { ApolloServer } from 'apollo-server';
-import { SchemaDirectiveVisitor } from 'graphql-tools';
+import { ApolloServer, SchemaDirectiveVisitor } from 'apollo-server';
 import { ApolloServer as ApolloServerLambda } from 'apollo-server-lambda';
 import dotenv from 'dotenv';
 import { buildSchemaSync } from 'type-graphql';
