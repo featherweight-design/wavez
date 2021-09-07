@@ -1,5 +1,5 @@
 [build]
-  command = "npm run deploy"
+  command = "yarn deploy"
   functions = "src/functions"
 [functions]
   external_node_modules = ["type-graphql", "any-promise", "express"]
