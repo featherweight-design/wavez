@@ -59,6 +59,7 @@
     "graphql-scalars": "^1.10.0",
     "jsonwebtoken": "^8.5.1",
     "local-devices": "^3.1.0",
+    "module-alias": "^2.2.2",
     "netlify-lambda": "^2.0.14",
     "node-fetch": "^2.6.1",
     "reflect-metadata": "^0.1.13",
@@ -96,6 +97,9 @@
   },
   "resolutions": {
     "graphql": "^15.3.0"
+  },
+  "_moduleAliases": {
+    "graphql": "node_modules/graphql/index.js"
   },
   "husky": {
     "hooks": {
