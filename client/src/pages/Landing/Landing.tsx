@@ -36,7 +36,7 @@ const Landing: FC = () => {
   const scrollY = useScrollPosition(60);
   const windowHeight = useWindowHeight();
   const { user, loginWithRedirect, logout } = useAuth0();
-  const [signIn, { data, loading, error }] = useMutation<
+  const [signIn, { data, loading }] = useMutation<
     {
       user: {
         id: string;
@@ -78,7 +78,7 @@ const Landing: FC = () => {
     })();
   }, [user]);
 
-  console.log({ user, data, loading, error });
+  console.log({ user, data, loading });
 
   const removeElementByIndex = (elements: string[], count: number): void => {
     if (count === 0) {
