@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import 'reflect-metadata';
 import { PrismaClient } from '@prisma/client';
 import { ApolloServer, SchemaDirectiveVisitor } from 'apollo-server';
@@ -18,17 +20,20 @@ dotenv.config({ path: `${__dirname}/.env` });
 
 const prisma = new PrismaClient();
 
-const schema = buildSchemaSync({
-  // emitSchemaFile: true,
-  resolvers: [
-    AccessKeyResolver,
-    DeviceResolver,
-    NanoleafAuthTokenResolver,
-    NanoleafStateResolver,
-    PaletteResolver,
-    UserResolver,
-  ],
-});
+(global as any).schema =
+  (global as any).schema ||
+  buildSchemaSync({
+    // emitSchemaFile: true,
+    resolvers: [
+      AccessKeyResolver,
+      DeviceResolver,
+      NanoleafAuthTokenResolver,
+      NanoleafStateResolver,
+      PaletteResolver,
+      UserResolver,
+    ],
+  });
+const schema = (global as any).schema;
 
 // Because the schema is built by TypeGraphQL, we need to register
 // any directives through apollo-server using the below
