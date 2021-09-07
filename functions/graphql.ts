@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { createLambdaServer } from '../server';
+import { createLambdaServer } from './bundle/server';
 
 const server = createLambdaServer();
 
