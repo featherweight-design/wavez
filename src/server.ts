@@ -37,35 +37,25 @@ SchemaDirectiveVisitor.visitSchemaDirectives(schema, {
   authorized: AuthorizationDirective,
 });
 
-const createLocalServer = (): typeof ApolloServer.prototype =>
-  new ApolloServer({
-    // cors: {
-    //   allowedHeaders: 'Authorization',
-    //   credentials: true,
-    //   methods: 'POST',
-    //   origin: process.env.ORIGIN,
-    // },
-    schema,
-    //* Prisma must be privided to other resolvers through context
-    context: async ({ req }): Promise<Context> => ({
-      prisma,
-      user: await getUserFromToken(prisma, req.headers.authorization),
-      createToken,
-    }),
-  });
+const localServer = new ApolloServer({
+  schema,
+  //* Prisma must be provided to other resolvers through context
+  context: async ({ req }): Promise<Context> => ({
+    prisma,
+    user: await getUserFromToken(prisma, req.headers.authorization),
+    createToken,
+  }),
+});
 
-const createLambdaServer = (): typeof ApolloServerLambda.prototype =>
-  new ApolloServerLambda({
-    schema,
-    //* Prisma must be privided to other resolvers through context
-    context: async ({ express }): Promise<Context> => ({
-      prisma,
-      user: await getUserFromToken(prisma, express.req.headers.authorization),
-      createToken,
-    }),
-  });
+const lambdaServer = new ApolloServerLambda({
+  introspection: true,
+  schema,
+  //* Prisma must be provided to other resolvers through context
+  context: async ({ express }): Promise<Context> => ({
+    prisma,
+    user: await getUserFromToken(prisma, express.req.headers.authorization),
+    createToken,
+  }),
+});
 
-export { createLambdaServer, createLocalServer };
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-// exports.graphqlHandler = server.createHandler();
+export { lambdaServer, localServer };
