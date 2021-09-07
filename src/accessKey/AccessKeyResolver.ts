@@ -17,7 +17,7 @@ const { descriptions } = copy;
 class AccessKeyResolver {
   @Query(() => Boolean, { description: descriptions.findAccessKeyByEmail })
   async findAccessKeyByEmail(
-    @Arg('email') email: string,
+    @Arg('email', () => String) email: string,
     @Ctx() { prisma }: Context
   ): Promise<boolean> {
     try {
@@ -55,7 +55,7 @@ class AccessKeyResolver {
   @Directive('@authenticated')
   @Mutation(() => AccessKey, { description: descriptions.createAccessKey })
   async createAccessKey(
-    @Arg('email') email: string,
+    @Arg('email', () => String) email: string,
     @Ctx() { prisma, user }: Context
   ): Promise<AccessKey> {
     try {
@@ -83,7 +83,7 @@ class AccessKeyResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.deleteAccessKeyById })
   async deleteAccessKeyById(
-    @Arg('id') id: string,
+    @Arg('id', () => String) id: string,
     @Ctx() { prisma }: Context
   ): Promise<boolean> {
     try {
@@ -103,7 +103,7 @@ class AccessKeyResolver {
   @Directive('@authenticated')
   @Mutation(() => Boolean, { description: descriptions.inviteByEmail })
   async inviteByEmail(
-    @Arg('email') email: string,
+    @Arg('email', () => String) email: string,
     @Ctx() { prisma, user }: Context
   ): Promise<boolean> {
     try {
