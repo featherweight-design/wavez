@@ -13,31 +13,28 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "client": "cd client && yarn start",
+    "client": "cd client && npm run start",
     "server": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "postinstall": "cd client && yarn install",
-    "build-client": "cd client && yarn build",
-    "clean": "rm -rf node_modules yarn.lock && yarn install",
-    "deploy": "yarn install && yarn build-client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "postinstall": "cd client && npm i",
+    "build-client": "cd client && npm run build",
+    "clean": "rm -rf node_modules package-lock.json && npm i",
+    "deploy": "npm i && npm run build-client",
     "format": "prettier --write \"src/**/*.ts?(x)\"",
-    "lint": "yarn lint-server && yarn lint-client",
-    "lint-ci": "yarn lint-server-ci && yarn lint-client-ci",
-    "lint-client": "cd client && yarn lint",
-    "lint-client-ci": "cd client && yarn lint-ci",
+    "lint": "npm run lint-server && npm run lint-client",
+    "lint-ci": "npm run lint-server-ci && npm run lint-client-ci",
+    "lint-client": "cd client && npm run lint",
+    "lint-client-ci": "cd client && npm run lint-ci",
     "lint-server": "eslint './src/**/*.{js,ts}' --fix",
     "lint-server-ci": "eslint './src/**/*.{js,ts}'",
-    "test-client": "cd client && yarn test",
-    "test-client-ci": "cd client && yarn test-ci",
+    "test-client": "cd client && npm run test",
+    "test-client-ci": "cd client && npm run test-ci",
     "generate": "npx prisma generate",
     "migrate-deploy": "npx prisma migrate deploy",
     "migrate-dev": "npx prisma migrate dev",
     "migrate-reset": "npx prisma migrate reset",
     "seed": "npx prisma db seed",
     "studio": "npx prisma studio"
-  },
-  "resolutions":{
-    "graphql":"^15.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,7 +97,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn lint"
+      "pre-push": "npm run lint"
     }
   }
 }

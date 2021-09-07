@@ -9,13 +9,13 @@
     "test": "react-scripts test",
     "test-ci": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "clean": "rm -rf node_modules yarn.lock && yarn install",
+    "clean": "rm -rf node_modules package-lock.json && npm run install",
     "format": "prettier --write \"src/**/*.ts?(x)\"",
     "lint": "eslint './src/**/*.{js,ts,tsx,mdx}' --fix",
     "lint-ci": "eslint './src/**/*.{js,ts,tsx,mdx}'",
     "cy-open": "cypress open",
     "cy-run": "cypress run",
-    "upgrade": "yarn upgrade-interactive --latest"
+    "upgrade": "npm run upgrade-interactive --latest"
   },
   "dependencies": {
     "@apollo/client": "^3.4.1",
@@ -37,7 +37,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "4.0.3",
     "typescript": "^4.3.5",
     "web-vitals": "^1.0.1"
   },
