@@ -37,25 +37,26 @@ const schema = buildSchemaSync({
 //   authorized: AuthorizationDirective,
 // });
 
-const localServer = new ApolloServer({
-  schema,
-  //* Prisma must be provided to other resolvers through context
-  context: async ({ req }): Promise<Context> => ({
-    prisma,
-    user: await getUserFromToken(prisma, req.headers.authorization),
-    createToken,
-  }),
-});
+const createLocalServer = (): typeof ApolloServer.prototype =>
+  new ApolloServer({
+    schema,
+    //* Prisma must be privided to other resolvers through context
+    context: async ({ req }): Promise<Context> => ({
+      prisma,
+      user: await getUserFromToken(prisma, req.headers.authorization),
+      createToken,
+    }),
+  });
 
-const lambdaServer = new ApolloServerLambda({
-  introspection: true,
-  schema,
-  //* Prisma must be provided to other resolvers through context
-  context: async ({ express }): Promise<Context> => ({
-    prisma,
-    user: await getUserFromToken(prisma, express.req.headers.authorization),
-    createToken,
-  }),
-});
+const createLambdaServer = (): typeof ApolloServerLambda.prototype =>
+  new ApolloServerLambda({
+    schema,
+    //* Prisma must be privided to other resolvers through context
+    context: async ({ express }): Promise<Context> => ({
+      prisma,
+      user: await getUserFromToken(prisma, express.req.headers.authorization),
+      createToken,
+    }),
+  });
 
-export { lambdaServer, localServer };
+export { createLambdaServer, createLocalServer };

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { lambdaServer } from '../server';
+import { createLambdaServer } from '../server';
 
-const server = lambdaServer;
+const server = createLambdaServer();
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 exports.handler = server.createHandler();

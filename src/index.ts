@@ -1,7 +1,7 @@
-import { localServer } from 'server';
+import { createLocalServer } from 'server';
 
 const PORT = process.env.PORT || 4000;
-const server = localServer;
+const server = createLocalServer();
 
 // eslint-disable-next-line no-void
 void server.listen(PORT, () =>
