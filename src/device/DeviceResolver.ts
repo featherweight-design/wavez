@@ -107,7 +107,7 @@ class DeviceResolver {
     description: descriptions.discoverWifiDevicesByType,
   })
   async discoverWifiDevicesByType(
-    @Arg('type') type: DeviceType
+    @Arg('type', () => DeviceEnum) type: DeviceType
   ): Promise<WifiDevice[]> {
     try {
       const devices = await this.discoverWifiDevices();
