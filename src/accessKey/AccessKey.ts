@@ -5,7 +5,7 @@ class AccessKey {
   @Field(() => ID)
   id: string;
 
-  @Field()
+  @Field(() => ID)
   key: string;
 
   @Field()
