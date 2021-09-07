@@ -72,13 +72,12 @@ const Landing: FC = () => {
         try {
           await signIn({ variables: { email: user.email } });
         } catch (error) {
-          console.error(error);
+          // console.error(error);
         }
       }
     })();
   }, [user]);
 
-  console.log({ user, data, loading });
 
   const removeElementByIndex = (elements: string[], count: number): void => {
     if (count === 0) {
