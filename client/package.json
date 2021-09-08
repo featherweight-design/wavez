@@ -45,6 +45,9 @@
     "@testing-library/cypress": "^7.0.3",
     "cypress": "^8.1.0"
   },
+  "resolutions": {
+    "graphql": "15.x"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
