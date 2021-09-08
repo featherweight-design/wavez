@@ -55,7 +55,6 @@
     "class-validator": "^0.13.1",
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
-    "graphql": "^15.3.0",
     "graphql-fields": "^2.0.3",
     "graphql-scalars": "^1.10.0",
     "jsonwebtoken": "^8.5.1",
