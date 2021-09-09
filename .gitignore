@@ -12,7 +12,7 @@ node_modules/
 /src/cypress/videos/*
 
 # production
-/client/build
+/build
 
 # misc
 .DS_Store

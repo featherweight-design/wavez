@@ -1,5 +1,5 @@
 {
-  "name": "wavez-graphql",
+  "name": "wavez",
   "version": "1.0.0",
   "description": "",
   "repository": {
@@ -13,29 +13,32 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "client": "cd client && yarn start",
-    "server": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
+    "client": "react-scripts start",
+    "server": "ts-node-dev --respawn -r tsconfig-paths/register server/index.ts",
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "postinstall": "cd client && yarn install",
-    "build-client": "cd client && yarn build",
-    "bundle": "cpx 'src/**/*' functions/bundle",
+    "build-client": "tsc -p tsconfig.build.json && react-scripts build",
     "clean": "rm -rf node_modules yarn.lock && yarn install",
-    "deploy": "yarn bundle && yarn install && yarn build-client",
-    "format": "prettier --write \"src/**/*.ts?(x)\"",
-    "lint": "yarn lint-server && yarn lint-client",
-    "lint-ci": "yarn lint-server-ci && yarn lint-client-ci",
-    "lint-client": "cd client && yarn lint",
-    "lint-client-ci": "cd client && yarn lint-ci",
-    "lint-server": "eslint './src/**/*.{js,ts}' --fix",
-    "lint-server-ci": "eslint './src/**/*.{js,ts}'",
-    "test-client": "cd client && yarn test",
-    "test-client-ci": "cd client && yarn test-ci",
+    "deploy": "yarn install && yarn build-client",
     "generate": "npx prisma generate",
     "migrate-deploy": "npx prisma migrate deploy",
     "migrate-dev": "npx prisma migrate dev",
     "migrate-reset": "npx prisma migrate reset",
     "seed": "npx prisma db seed",
-    "studio": "npx prisma studio"
+    "studio": "npx prisma studio",
+    "cy-open": "cypress open",
+    "cy-run": "cypress run",
+    "format-client": "prettier --write \"src/**/*.ts?(x)\"",
+    "format-server": "prettier --write \"src/**/*.ts?(x)\"",
+    "lint": "yarn lint-server && yarn lint-client",
+    "lint-ci": "yarn lint-server-ci && yarn lint-client-ci",
+    "lint-client": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
+    "lint-client-ci": "eslint './server/**/*.{js,jsx,ts,tsx}'",
+    "lint-server": "eslint './server/**/*.{js,ts}' --fix",
+    "lint-server-ci": "eslint './server/**/*.{js,ts}'",
+    "test-client": "react-scripts test",
+    "test-client-ci": "react-scripts test --coverage --watchAll=false",
+    "eject-client": "react-scripts eject",
+    "upgrade": "yarn upgrade-interactive --latest"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -46,13 +49,27 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "^3.4.1",
+    "@auth0/auth0-react": "^1.6.0",
+    "@f-design/component-library": "^2.1.0",
     "@prisma/client": "^2.29.1",
+    "@react-hook/window-scroll": "^1.3.0",
+    "@react-hook/window-size": "^3.0.7",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
     "@sendgrid/mail": "^7.4.6",
     "@types/graphql-fields": "^1.3.4",
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.15",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.6",
     "apollo-server": "^3.3.0",
     "apollo-server-core": "^3.3.0",
     "apollo-server-lambda": "3.0.0-alpha.3",
     "class-validator": "^0.13.1",
+    "clsx": "^1.1.1",
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
     "graphql-fields": "^2.0.3",
@@ -61,14 +78,21 @@
     "local-devices": "^3.1.0",
     "netlify-lambda": "^2.0.14",
     "node-fetch": "^2.6.1",
+    "node-sass": "4.14.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.1.8",
     "type-graphql": "^1.0.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "web-vitals": "^1.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@testing-library/cypress": "^7.0.3",
     "@types/jsonwebtoken": "^8.5.4",
     "@types/node": "^16.0.0",
     "@types/node-fetch": "^2.5.10",
@@ -76,6 +100,7 @@
     "@typescript-eslint/parser": "^4.30.0",
     "concurrently": "^6.2.1",
     "cpx": "^1.5.0",
+    "cypress": "^8.1.0",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.1.0",
@@ -102,5 +127,17 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "yarn lint"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
