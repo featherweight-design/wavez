@@ -6,6 +6,7 @@ module.exports = {
     'jest/globals': true,
     'cypress/globals': true,
   },
+  // parser: '@typescript-eslint/parser',
   parserOptions: {
     // Allows for the parsing of modern ECMAScript features
     ecmaVersion: 2018,
@@ -125,9 +126,16 @@ module.exports = {
       // Tells eslint-plugin-react to automatically detect the version of React to use
       version: 'detect',
     },
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts'],
+    },
     'import/resolver': {
       // This loads <rootdir>/tsconfig.json to eslint
       typescript: {},
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
   overrides: [
