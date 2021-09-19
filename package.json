@@ -15,7 +15,7 @@
   "type": "module",
   "scripts": {
     "client": "react-scripts start",
-    "server": "ts-node-dev --respawn -r tsconfig-paths/register server/index.ts",
+    "server": "ts-node-dev --project tsconfig.server.json --respawn -r tsconfig-paths/register server/index.ts",
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "build-client": "tsc -p tsconfig.build.json && react-scripts build",
     "clean": "rm -rf node_modules yarn.lock && yarn install",
