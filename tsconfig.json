@@ -42,6 +42,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "server/**/*.ts",
     "prisma/**/*.ts",
     "functions/**/*.ts"
   ],

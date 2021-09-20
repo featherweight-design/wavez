@@ -1,6 +1,9 @@
 import fetch from 'node-fetch';
 
-import { NanoleafAllEffectsResponse, NanoLeafAnimationResponse } from 'server/types';
+import {
+  NanoleafAllEffectsResponse,
+  NanoLeafAnimationResponse,
+} from 'server/types';
 import { constants } from '../definitions';
 
 const { endpoints } = constants;

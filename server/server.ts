@@ -11,7 +11,10 @@ import { Context } from 'server/types';
 import { AccessKeyResolver } from 'server/accessKey';
 import { DeviceResolver } from 'server/device';
 // import { AuthenticationDirective, AuthorizationDirective } from 'server/directives';
-import { NanoleafAuthTokenResolver, NanoleafStateResolver } from 'server/nanoleaf';
+import {
+  NanoleafAuthTokenResolver,
+  NanoleafStateResolver,
+} from 'server/nanoleaf';
 import { PaletteResolver } from 'server/palettes';
 import { UserResolver } from 'server/user';
 import { createToken, getUserFromToken } from 'server/utils';

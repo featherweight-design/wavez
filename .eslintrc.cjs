@@ -16,7 +16,7 @@ module.exports = {
       // Allows for the parsing of JSX
       jsx: true,
     },
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', './tsconfig.server.json'],
   },
   ignorePatterns: ['**/notes/*.{js,json,md,ts}'],
   extends: [
