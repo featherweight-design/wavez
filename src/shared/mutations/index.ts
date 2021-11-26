@@ -1,3 +1,3 @@
-// Mutations should be stored in this directory and exported here
+import SIGN_IN from './SignIn';
 
-export default {};
+export default { SIGN_IN };
