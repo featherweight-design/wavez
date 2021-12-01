@@ -7,6 +7,7 @@ import { Landing, Dashboard } from 'pages';
 const Routes: FC = () => (
   <Router>
     <Switch>
+      <Route exact path="/" component={Landing} />
       <Route
         path="/*"
         render={(): ReactElement => (
@@ -17,7 +18,6 @@ const Routes: FC = () => (
           </NavigationContainer>
         )}
       />
-      <Route exact path="/" component={Landing} />
     </Switch>
   </Router>
 );
