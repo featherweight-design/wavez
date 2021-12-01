@@ -22,15 +22,7 @@
   }
 
   &__header {
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    max-width: 1800px;
-    padding: 1rem;
-    background-color: transparent;
-    box-sizing: border-box;
-    z-index: 1;
+    @include header-styles;
   }
 
   &__content-section {

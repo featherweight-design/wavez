@@ -65,7 +65,7 @@ const NavigationContainer: FC = ({
 
       <section className={`${constants.classNameRoot}__content`}>
         <header className={`${constants.classNameRoot}__header`}>
-          <Button variant="brand" onClick={logout}>
+          <Button variant="outline" onClick={logout}>
             {landingPage.header.logout}
           </Button>
         </header>
