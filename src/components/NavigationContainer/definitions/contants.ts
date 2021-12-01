@@ -1,3 +1,12 @@
+import Logo from 'assets/logo/Wavez Logo.png';
+
+const classNameRoot = 'wavez-navigation-container';
+
+const logoInfo = {
+  alt: 'Wavez | Your Music. Your Lights. In Sync.',
+  src: Logo,
+};
+
 const menuOptions = [
   {
     label: 'Dashboard',
@@ -37,4 +46,4 @@ const menuOptions = [
   },
 ];
 
-export default { menuOptions };
+export default { classNameRoot, logoInfo, menuOptions };
