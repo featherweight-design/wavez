@@ -54,7 +54,7 @@ const NavigationContainer: FC = ({
   );
 
   return (
-    <section className={`${constants.classNameRoot}`}>
+    <div className={`${constants.classNameRoot}`}>
       <SideNavigation
         goDark
         currentlyViewing={currentlyViewing}
@@ -63,7 +63,7 @@ const NavigationContainer: FC = ({
         onNavigate={({ path }: CurrentlyViewing) => history.push(path)}
       />
 
-      <section className={`${constants.classNameRoot}__content`}>
+      <div className={`${constants.classNameRoot}__content`}>
         <header className={`${constants.classNameRoot}__header`}>
           <Button variant="outline" onClick={logout}>
             {landingPage.header.logout}
@@ -71,8 +71,8 @@ const NavigationContainer: FC = ({
         </header>
 
         <div className={`${constants.classNameRoot}__main`}>{children}</div>
-      </section>
-    </section>
+      </div>
+    </div>
   );
 };
 
