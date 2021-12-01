@@ -70,9 +70,7 @@ const NavigationContainer: FC = ({
           </Button>
         </header>
 
-        <section className={`${constants.classNameRoot}__main`}>
-          {children}
-        </section>
+        <div className={`${constants.classNameRoot}__main`}>{children}</div>
       </section>
     </section>
   );
