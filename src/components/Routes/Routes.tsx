@@ -1,11 +1,24 @@
-import { FC } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { FC, ReactElement } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Landing } from 'pages';
+import { NavigationContainer } from 'components';
+import { Landing, Dashboard } from 'pages';
 
 const Routes: FC = () => (
   <Router>
-    <Route path="/" component={Landing} />
+    <Switch>
+      <Route
+        path="/*"
+        render={(): ReactElement => (
+          <NavigationContainer>
+            <Switch>
+              <Route exact path="/dashboard" component={Dashboard} />
+            </Switch>
+          </NavigationContainer>
+        )}
+      />
+      <Route exact path="/" component={Landing} />
+    </Switch>
   </Router>
 );
 
