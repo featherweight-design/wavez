@@ -1,3 +1,5 @@
+@import 'styles/main.scss';
+
 .wavez-navigation-container {
   display: flex;
   height: 100%;
@@ -8,6 +10,11 @@
   }
   &__main {
     flex: 1;
+    background-color: $background-black;
+    color: $brand-white;
     overflow: auto;
+  }
+  &__header {
+    @include header-styles;
   }
 }
