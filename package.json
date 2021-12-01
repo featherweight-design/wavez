@@ -37,7 +37,7 @@
   "dependencies": {
     "@apollo/client": "^3.4.1",
     "@auth0/auth0-react": "^1.6.0",
-    "@f-design/component-library": "^2.1.0",
+    "@f-design/component-library": "4.0.0-canary-HartiganHM-25bd07a8-b85a-5753-866a-4cdc6ff52f14.0",
     "@react-hook/window-scroll": "^1.3.0",
     "@react-hook/window-size": "^3.0.7",
     "@testing-library/jest-dom": "^5.11.6",
