@@ -1,18 +1,18 @@
 // Add color, box, measurement, etc. variables here
 
 // BRAND COLORS
-$brand-white: #dbfffb;
-$brand-xx-light: #b3fff7;
-$brand-x-light: #85fff3;
-$brand-light: #57ffee;
-$brand-medium: #29ffea;
-$brand-color: #00ffe5;
-$brand-hover: #00e6cf;
-$brand-active: #00d1bc;
-$brand-dark: #009e8e;
-$brand-x-dark: #007065;
-$brand-xx-dark: #00423c;
-$brand-black: #000f0e;
+$brand-white: hsl(173, 100%, 93%);
+$brand-xx-light: hsl(174, 100%, 85%);
+$brand-x-light: hsl(174, 100%, 76%);
+$brand-light: hsl(174, 100%, 67%);
+$brand-medium: hsl(174, 100%, 58%);
+$brand-color: hsl(174, 100%, 50%);
+$brand-hover: hsl(174, 100%, 45%);
+$brand-active: hsl(174, 100%, 41%);
+$brand-dark: hsl(174, 100%, 31%);
+$brand-x-dark: hsl(174, 100%, 22%);
+$brand-xx-dark: hsl(175, 100%, 13%);
+$brand-black: hsl(176, 100%, 3%);
 $brand-focus-outline: #0bd5e0;
 
 $brand-color-20: rgba(0, 255, 229, 0.2);
@@ -39,15 +39,15 @@ $accent-music-60: rgba(137, 25, 208, 0.6);
 $accent-music-80: rgba(137, 25, 208, 0.8);
 
 // BACKGROUND COLORS
-$background-white: #004d47;
-$background-xx-light: #00423e; // gray-02 => gray-03, gray-01
-$background-x-light: #003330; // gray-04 => gray-05, gray-06
-$background-light: #001f1d; // gray-08 => gray-07, gray-09
-$background: #000f0e; // gray-11 => gray-10, gray-12
-$background-dark: #000f0e; // gray-14 => gray-13, gray-15
-$background-x-dark: #000f0e; // gray-17 => gray-16, gray-18
-$background-xx-dark: #000f0e; // gray-20 => gray-19, gray-21
-$background-black: #000;
+$background-white: hsl(175, 100%, 100%);
+$background-xx-light: hsl(176, 100%, 95%); // gray-02 => gray-03, gray-01
+$background-x-light: hsl(176, 100%, 80%); // gray-04 => gray-05, gray-06
+$background-light: hsl(176, 100%, 65%); // gray-08 => gray-07, gray-09
+$background: hsl(176, 100%, 50%); // gray-11 => gray-10, gray-12
+$background-dark: hsl(176, 100%, 35%); // gray-14 => gray-13, gray-15
+$background-x-dark: hsl(176, 100%, 20%); // gray-17 => gray-16, gray-18
+$background-xx-dark: hsl(176, 100%, 5%); // gray-20 => gray-19, gray-21
+$background-black: hsl(0, 0%, 0%);
 
 // MISC COLORS
 $black-opaque-50: rgba(4, 5, 16, 0.5);
