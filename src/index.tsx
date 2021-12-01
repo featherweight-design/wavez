@@ -11,7 +11,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="fwd-dev.us.auth0.com"
     clientId="F1uURdxDoUr0maxxg8jdAsRD00W1qf0M"
-    redirectUri={window.location.origin}
+    redirectUri={`${window.location.origin}/dashboard`}
   >
     <ApolloProvider client={client}>
       <StrictMode>
