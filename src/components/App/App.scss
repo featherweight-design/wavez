@@ -8,17 +8,19 @@ body,
 .wavez-app {
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: auto;
   box-sizing: border-box;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
 }
 
-body,
-#root,
-.wavez-app {
-  flex: 1;
+#root {
+  display: flex;
+  flex-direction: column;
+  & > :first-child {
+    flex: 1;
+  }
 }
-
 
 body {
   margin: 0;
