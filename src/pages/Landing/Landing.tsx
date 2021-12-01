@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import { Button } from '@f-design/component-library';
-import { useMutation } from '@apollo/client';
 import { useAuth0 } from '@auth0/auth0-react';
 import useScrollPosition from '@react-hook/window-scroll';
 import { useWindowHeight } from '@react-hook/window-size';
@@ -19,7 +18,6 @@ import ScenesIcon from 'assets/icons/Scenes Icon.png';
 import SoundcloudIcon from 'assets/icons/Soundcloud Icon.png';
 import SpotifyIcon from 'assets/icons/Spotify Icon.png';
 import { copyContent } from 'shared/data';
-import SIGN_IN from 'shared/mutations/SignIn';
 
 import './Landing.scss';
 
@@ -36,19 +34,6 @@ const Landing: FC = () => {
   const scrollY = useScrollPosition(60);
   const windowHeight = useWindowHeight();
   const { user, loginWithRedirect, logout } = useAuth0();
-  const [signIn] = useMutation<
-    {
-      user: {
-        id: string;
-        name: string;
-        email: string;
-        invites: number;
-        role: string;
-      };
-      token: string;
-    },
-    { email: string }
-  >(SIGN_IN);
   const [offset, updateOffset] = useState(0);
   const [hiddenElements, updateHiddenElements] = useState([
     'mainBackgroundCircle',
@@ -65,18 +50,6 @@ const Landing: FC = () => {
   useEffect(() => {
     removeElementByIndex(hiddenElements, 4);
   }, []);
-
-  useEffect(() => {
-    (async () => {
-      if (user?.email) {
-        try {
-          await signIn({ variables: { email: user.email } });
-        } catch (error) {
-          // console.error(error);
-        }
-      }
-    })();
-  }, [user]);
 
   const removeElementByIndex = (elements: string[], count: number): void => {
     if (count === 0) {
@@ -104,11 +77,11 @@ const Landing: FC = () => {
     <section className={classNameRoot}>
       <header className={`${classNameRoot}__header`}>
         {user ? (
-          <Button variant="brand" onClick={logout}>
+          <Button variant="outline" onClick={logout}>
             {header.logout}
           </Button>
         ) : (
-          <Button variant="brand" onClick={loginWithRedirect}>
+          <Button variant="outline" onClick={loginWithRedirect}>
             {header.login}
           </Button>
         )}
